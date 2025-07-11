@@ -1,0 +1,105 @@
+### CONTEXT
+You are a professional data scientist responsible for introducing datasets. 
+Your goal is to generate clear, simple and purpose-driven overview for each dataset based on provided database schemas and column descriptions.
+### OBJECTIVE
+Generate a concise and accurate summary that explains the dataset’s purpose, main data categories and data source.
+### GUIDELINES
+1.	Explain what the dataset represents and why it was collected.
+2.	Describe the primary tables using simple, everyday language.
+3.	Keep each overview concise—between 2 and 4 sentences.
+4.	Output must be in strict JSON format as specified below.
+### INPUT
+- Data Schema: the database ID and tables names.
+- Column Descriptions: clearly explanations of each column’s purpose or meaning.
+### OUTPUT
+Your output should be in a JSON form with the following structure:
+{{
+  "db_id": "database_name",
+  "db_overview": "the purpose, major data categories, and data source"
+}}
+- db_id: The name of the database.
+- db_overview: A textual summary written for clarity and context.
+### EXAMPLES
+==========
+Example 1
+**************************
+【Data Schema】
+{{
+	"db_id": "Pesticide",
+    "table_names": ["sampledata15","resultsdata15"],
+}}
+【Column Descriptions】
+{{	
+	"column_descriptions": [[-1,"*"],[0,"PDP Sample ID - unique sample identifer"],[0,"State code for location of origin (grower packer or distributor) if sample is domestic"],[0,"2-digit Year"],[0,"2-digit Month"],[0,"2-digit Day"],[0,"4-digit Collection Site code"],[0,"Commodity Code for product collected"],[0,"optional 1-letter Source ID code"],[0,"Variety/class of the product collected"],[0,"Code indicating sample origin"],[0,"Country of origin if the sample was imported"],[0,"Code for type of collection/distribution facility"],[0,"Code for commodity or package/container type"],[0,"Code for claim made on product"],[0,"Number of individual units in sample for select non-clustered products"],[0,"the grow state of the sampledata15"],[0,"the pack state of the sampledata15"],[0,"the distribution state of the sampledata15"],[1,"the sample pk of the resultsdata15"],[1,"the commodity code of the resultsdata15"],[1,"the commodity type of the resultsdata15"],[1,"the lab code of the resultsdata15"],[1,"FDA/PDP Pesticide Code for compound tested"],[1,"Code for Test Classification"],[1,"Concentration of residue detected. Zero (0) for non-detect"],[1,"Limit of Detection for pesticide/commodity pair"],[1,"Concentration of residue detected"],[1,"Code for primary Confirmation method"],[1,"Code for secondary Confirmation method"],[1,"Code for Annotated Information"],[1,"Code for Quantitative method"],[1,"Code for Mean Result finding"],[1,"Code for Extraction method"],[1,"Code for Determinative method"]]
+}}
+**************************
+【Output】
+{{
+  "db_id": " Pesticide",
+  "db_overview": "This dataset contains information on pesticide residues in food. The U.S. Department of Agriculture (USDA) Agricultural Marketing Service (AMS) conducts the Pesticide Data Program (PDP) every year to help assure consumers that the food they feed themselves and their families is safe. Ultimately, if EPA determines a pesticide is not safe for human consumption, it is removed from the market. The PDP tests a wide variety of domestic and imported foods, with a strong focus on foods that are consumed by infants and children. EPA relies on PDP data to conduct dietary risk assessments and to ensure that any pesticide residues in foods remain at safe levels. USDA uses the data to better understand the relationship of pesticide residues to agricultural practices and to enhance USDA’s Integrated Pest Management objectives. USDA also works with U.S. growers to improve agricultural practices."
+}}
+==========
+Example 2
+**************************
+【Data Schema】
+{{
+	"db_id": "USWildFires",
+   	"table_names": ["fires"]
+}}
+【Column Descriptions】
+{{
+	"column_descriptions": [[-1,"*"],[0,"Calendar year in which the fire was discovered or confirmed to exist."],[0,"Date on which the fire was discovered or confirmed to exist."],[0,"Day of year on which the fire was discovered or confirmed to exist."],[0,"Time of day that the fire was discovered or confirmed to exist."],[0,"Code for the (statistical) cause of the fire."],[0,"Description of the (statistical) cause of the fire."],[0,"Date on which the fire was declared contained or otherwise controlled"],[0,"Day of year on which the fire was declared contained or otherwise controlled."],[0,"Time of day that the fire was declared contained or otherwise controlled"],[0,"Estimate of acres within the final perimeter of the fire."],[0,"Code for fire size based on the number of acres within the final fire perimeter expenditures."],[0,"Latitude (NAD83) for point location of the fire"],[0,"Longitude (NAD83) for point location of the fire"],[0,"Code for primary owner or entity responsible for managing the land at the point of origin of the fire at the time of the incident."],[0,"Name of primary owner or entity responsible for managing the land at the point of origin of the fire at the time of the incident."],[0,"Two-letter code for the state in which the unit is located"],[0,"County, or equivalent, in which the fire burned (or originated), based on nominal designation in the fire report."],[0,"Three-digit code from the Federal Information Process Standards (FIPS) publication 6-4 for representation of counties and equivalent entities."],[0,"County name from the FIPS publication 6-4 for representation of counties and equivalent entities."]]
+}}
+**************************
+【Output】
+{{
+"db_id": " USWildFires",
+"db_overview": "This data publication contains a spatial database of wildfires that occurred in the United States from 1992 to 2015. It is the third update of a publication originally generated to support the national Fire Program Analysis (FPA) system. The wildfire records were acquired from the reporting systems of federal, state, and local fire organizations. The following core data elements were required for records to be included in this data publication: discovery date, final fire size, and a point location at least as precise as Public Land Survey System (PLSS) section (1-square mile grid). The data were transformed to conform, when possible, to the data standards of the National Wildfire Coordinating Group (NWCG). Basic error-checking was performed and redundant records were identified and removed, to the degree possible. The resulting product, referred to as the Fire Program Analysis fire-occurrence database (FPA FOD), includes 1.88 million geo-referenced wildfire records, representing a total of 140 million acres burned during the 24-year period."
+}}
+===========
+Example 3
+**************************
+【Data Schema】
+{{
+"db_id": "TheHistoryofBaseball",
+"table_names": ["hall of fame","player award","player award vote","salary","player"]
+}}
+【Column Descriptions】
+{{
+	"column_descriptions": [[-1,"*"],[0,"Player ID code"],[0,"Year of ballot"],[0,"Method by which player was voted upon"],[0,"Total ballots cast in that year"],[0,"Number of votes needed for selection in that year"],[0,"Total votes received"],[0,"Whether player was inducted by that vote or not (Y or N)"],[0,"Category in which candidate was honored"],[0,"Explanation of qualifiers for special elections"],[1,"Player ID code"],[1,"Name of award won"],[1,"the year of the player_award"],[1,"the league id of the player_award"],[1,"Award was a tie (Y or N)"],[1,"Notes about the award"],[2,"name of award votes were received for"],[2,"the year of the player_award_vote"],[2,"the league id of the player_award_vote"],[2,"Player ID code"],[2,"Number of points received"],[2,"Maximum numner of points possible"],[2,"Number of first place votes"],[3,"the year of the salary"],[3,"Team"],[3,"the league id of the salary"],[3,"Player ID code"],[3,"Salary"],[4,"Player ID code"],[4,"Year player was born"],[4,"Month player was born"],[4,"Day player was born"],[4,"Country where player was born"],[4,"State where player was born"],[4,"City where player was born"],[4,"Year player died"],[4,"Month player died"],[4,"Day player died"],[4,"Country where player died"],[4,"State where player died"],[4,"City where player died"],[4,"Player's first name"],[4,"Player's last name"],[4,"Player's given name (typically first and middle)"],[4,"Player's weight in pounds"]]
+}}
+**************************
+【Output】
+{{
+"db_id": "movielens",
+"db_overview": "The History of Baseball is a reformatted version of the famous Lahman’s Baseball Database. It contains Major League Baseball’s complete batting and pitching statistics from 1871 to 2015, plus fielding statistics, standings, team stats, park stats, player demographics, managerial records, awards, post-season data, and more. Scripts, Kaggle’s free, in-browser analytics tool, makes it easy to share detailed sabermetrics, predict the next hall of fame inductee, or illustrate how speed scores runs."
+}}
+===========
+Example 4
+**************************
+【Data Schema】
+{{
+	"db_id": "StudentMathScore",
+"table_names": ["finrev fed 17", "ndecoreexcel math grade8", "finrev fed key 17"]
+}}
+【Column Descriptions】
+{{
+"column_descriptions": [[-1,"*"],[0,"the state code of the FINREV_FED_17"],[0,"the idcensus of the FINREV_FED_17"],[0,"the school district of the FINREV_FED_17"],[0,"the nces id of the FINREV_FED_17"],[0,"the year data of the FINREV_FED_17"],[0,"Total federal revenue through the state to each school district."],[0,"Federal revenue through the state- Title 1 (no child left behind act)."],[0,"Federal revenue through the state- Child Nutrition A"],[1,"the year of the NDECoreExcel_Math_Grade8"],[1,"the state of the NDECoreExcel_Math_Grade8"],[1,"the all students of the NDECoreExcel_Math_Grade8"],[1,"the average scale score of the NDECoreExcel_Math_Grade8"],[2,"the state code of the FINREV_FED_KEY_17"],[2,"the state of the FINREV_FED_KEY_17"],[2,"the number of records of the FINREV_FED_KEY_17"]]
+}}
+**************************
+【Output】
+{{
+"db_id": "movielens",
+"db_overview": "This is a database contain information of the average student math score of a state and how much federal revenue a school district receives through its state."
+}}
+===========
+Now use the structure above to interpret the REAL INPUT below. Generate a database overview following the same format and standards.
+**************************
+【Data Schema】
+{DATABASE_SCHEMA}
+【Column Descriptions】
+{COLUMN_DESCRIPTIONS}
+**************************
+【Output】
+
+

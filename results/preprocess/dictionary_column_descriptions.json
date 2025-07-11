@@ -1,0 +1,3112 @@
+[
+  {
+    "db_id": "debit_card_specializing",
+    "customers": [
+      [
+        "CustomerID",
+        "Unique identifier for each customer"
+      ],
+      [
+        "Segment",
+        "Category or segment assigned to the customer"
+      ],
+      [
+        "Currency",
+        "Currency used by the customer"
+      ]
+    ],
+    "gasstations": [
+      [
+        "GasStationID",
+        "Unique identifier for each gas station"
+      ],
+      [
+        "ChainID",
+        "Identifier for the gas station chain"
+      ],
+      [
+        "Country",
+        "Country where the gas station is located"
+      ],
+      [
+        "Segment",
+        "Category or segment assigned to the gas station chain"
+      ]
+    ],
+    "products": [
+      [
+        "ProductID",
+        "Unique identifier for each product"
+      ],
+      [
+        "Description",
+        "Description of the product offered"
+      ]
+    ],
+    "transactions_1k": [
+      [
+        "TransactionID",
+        "Unique identifier for each transaction"
+      ],
+      [
+        "Date",
+        "Date when the transaction occurred"
+      ],
+      [
+        "Time",
+        "Time when the transaction occurred"
+      ],
+      [
+        "CustomerID",
+        "Identifier for the customer involved in the transaction"
+      ],
+      [
+        "CardID",
+        "Identifier for the card used in the transaction"
+      ],
+      [
+        "GasStationID",
+        "Identifier for the gas station where the transaction took place"
+      ],
+      [
+        "ProductID",
+        "Identifier for the product involved in the transaction"
+      ],
+      [
+        "Amount",
+        "Quantity or amount purchased in the transaction"
+      ],
+      [
+        "Price",
+        "Price per unit or total price of the transaction"
+      ]
+    ],
+    "yearmonth": [
+      [
+        "CustomerID",
+        "Identifier for the customer in the monthly record"
+      ],
+      [
+        "Date",
+        "Date representing the year and month of the record"
+      ],
+      [
+        "Consumption",
+        "Total consumption for the customer during the specified month"
+      ]
+    ]
+  },
+  {
+    "db_id": "financial",
+    "account": [
+      [
+        "account_id",
+        "Unique identifier for each account"
+      ],
+      [
+        "district_id",
+        "Branch location associated with the account"
+      ],
+      [
+        "frequency",
+        "Frequency of account statements or updates"
+      ],
+      [
+        "date",
+        "Date the account was created"
+      ]
+    ],
+    "card": [
+      [
+        "card_id",
+        "Unique identifier for each credit card"
+      ],
+      [
+        "disp_id",
+        "Identifier linking the card to a disposition record"
+      ],
+      [
+        "type",
+        "Type of credit card issued"
+      ],
+      [
+        "issued",
+        "Date the credit card was issued"
+      ]
+    ],
+    "client": [
+      [
+        "client_id",
+        "Unique identifier for each client"
+      ],
+      [
+        "gender",
+        "Client's gender"
+      ],
+      [
+        "birth_date",
+        "Client's date of birth"
+      ],
+      [
+        "district_id",
+        "Branch location associated with the client"
+      ]
+    ],
+    "disp": [
+      [
+        "disp_id",
+        "Unique identifier for each disposition record"
+      ],
+      [
+        "client_id",
+        "Identifier linking to the client"
+      ],
+      [
+        "account_id",
+        "Identifier linking to the account"
+      ],
+      [
+        "type",
+        "Role or type of disposition (e.g., owner, authorized user)"
+      ]
+    ],
+    "district": [
+      [
+        "district_id",
+        "Branch location within the district"
+      ],
+      [
+        "A2",
+        "Name of the district"
+      ],
+      [
+        "A3",
+        "Region where the district is located"
+      ],
+      [
+        "A4",
+        "Total number of inhabitants in the district"
+      ],
+      [
+        "A5",
+        "Number of municipalities with fewer than 499 inhabitants"
+      ],
+      [
+        "A6",
+        "Number of municipalities with 500 to 1,999 inhabitants"
+      ],
+      [
+        "A7",
+        "Number of municipalities with 2,000 to 9,999 inhabitants"
+      ],
+      [
+        "A8",
+        "Number of municipalities with more than 10,000 inhabitants"
+      ],
+      [
+        "A9",
+        "Additional district attribute (A9)"
+      ],
+      [
+        "A10",
+        "Proportion of inhabitants living in urban areas"
+      ],
+      [
+        "A11",
+        "Average salary in the district"
+      ],
+      [
+        "A12",
+        "Unemployment rate in 1995"
+      ],
+      [
+        "A13",
+        "Unemployment rate in 1996"
+      ],
+      [
+        "A14",
+        "Number of entrepreneurs per 1,000 inhabitants"
+      ],
+      [
+        "A15",
+        "Number of crimes committed in 1995"
+      ],
+      [
+        "A16",
+        "Number of crimes committed in 1996"
+      ]
+    ],
+    "loan": [
+      [
+        "loan_id",
+        "Unique identifier for each loan"
+      ],
+      [
+        "account_id",
+        "Identifier linking the loan to an account"
+      ],
+      [
+        "date",
+        "Date the loan was approved"
+      ],
+      [
+        "amount",
+        "Total amount approved for the loan"
+      ],
+      [
+        "duration",
+        "Duration of the loan in months"
+      ],
+      [
+        "payments",
+        "Monthly payment amount for the loan"
+      ],
+      [
+        "status",
+        "Current repayment status of the loan"
+      ]
+    ],
+    "order": [
+      [
+        "order_id",
+        "Unique identifier for each order"
+      ],
+      [
+        "account_id",
+        "Identifier linking the order to an account"
+      ],
+      [
+        "bank_to",
+        "Bank where the payment recipient holds an account"
+      ],
+      [
+        "account_to",
+        "Account number of the payment recipient"
+      ],
+      [
+        "amount",
+        "Amount debited for the order"
+      ],
+      [
+        "k_symbol",
+        "Purpose or type of payment"
+      ]
+    ],
+    "trans": [
+      [
+        "trans_id",
+        "Unique identifier for each transaction"
+      ],
+      [
+        "account_id",
+        "Identifier linking the transaction to an account"
+      ],
+      [
+        "date",
+        "Date the transaction occurred"
+      ],
+      [
+        "type",
+        "Indicates whether the transaction is a credit or debit"
+      ],
+      [
+        "operation",
+        "Method by which the transaction was made"
+      ],
+      [
+        "amount",
+        "Amount involved in the transaction"
+      ],
+      [
+        "balance",
+        "Account balance after the transaction"
+      ],
+      [
+        "k_symbol",
+        "Type or category of the transaction"
+      ],
+      [
+        "bank",
+        "Bank associated with the transaction partner"
+      ],
+      [
+        "account",
+        "Account number of the transaction partner"
+      ]
+    ]
+  },
+  {
+    "db_id": "formula_1",
+    "circuits": [
+      [
+        "circuitId",
+        "Unique identifier for each racing circuit"
+      ],
+      [
+        "circuitRef",
+        "Reference code for the circuit"
+      ],
+      [
+        "name",
+        "Official name of the circuit"
+      ],
+      [
+        "location",
+        "City or locality where the circuit is located"
+      ],
+      [
+        "country",
+        "Country where the circuit is situated"
+      ],
+      [
+        "lat",
+        "Latitude coordinate of the circuit"
+      ],
+      [
+        "lng",
+        "Longitude coordinate of the circuit"
+      ],
+      [
+        "alt",
+        "Altitude of the circuit above sea level"
+      ],
+      [
+        "url",
+        "Web link with more information about the circuit"
+      ]
+    ],
+    "constructors": [
+      [
+        "constructorId",
+        "Unique identifier for each constructor team"
+      ],
+      [
+        "constructorRef",
+        "Reference code for the constructor"
+      ],
+      [
+        "name",
+        "Official name of the constructor team"
+      ],
+      [
+        "nationality",
+        "Nationality of the constructor team"
+      ],
+      [
+        "url",
+        "Web link with more information about the constructor"
+      ]
+    ],
+    "drivers": [
+      [
+        "driverId",
+        "Unique identifier for each driver"
+      ],
+      [
+        "driverRef",
+        "Reference code for the driver"
+      ],
+      [
+        "number",
+        "Racing number assigned to the driver"
+      ],
+      [
+        "code",
+        "Short code representing the driver"
+      ],
+      [
+        "forename",
+        "Driver's first name"
+      ],
+      [
+        "surname",
+        "Driver's last name"
+      ],
+      [
+        "dob",
+        "Date of birth of the driver"
+      ],
+      [
+        "nationality",
+        "Nationality of the driver"
+      ],
+      [
+        "url",
+        "Web link with more information about the driver"
+      ]
+    ],
+    "seasons": [
+      [
+        "year",
+        "Unique identifier for each racing season"
+      ],
+      [
+        "url",
+        "Web link with more information about the season"
+      ]
+    ],
+    "races": [
+      [
+        "raceId",
+        "Unique identifier for each race event"
+      ],
+      [
+        "year",
+        "Year in which the race took place"
+      ],
+      [
+        "round",
+        "Round number within the season"
+      ],
+      [
+        "circuitId",
+        "Identifier for the circuit where the race was held"
+      ],
+      [
+        "name",
+        "Official name of the race event"
+      ],
+      [
+        "date",
+        "Date when the race occurred"
+      ],
+      [
+        "time",
+        "Start time of the race"
+      ],
+      [
+        "url",
+        "Web link with more information about the race"
+      ]
+    ],
+    "constructorResults": [
+      [
+        "constructorResultsId",
+        "Unique identifier for each constructor's race result"
+      ],
+      [
+        "raceId",
+        "Identifier for the race associated with the result"
+      ],
+      [
+        "constructorId",
+        "Identifier for the constructor team in the result"
+      ],
+      [
+        "points",
+        "Points awarded to the constructor in the race"
+      ],
+      [
+        "status",
+        "Status or outcome of the constructor in the race"
+      ]
+    ],
+    "constructorStandings": [
+      [
+        "constructorStandingsId",
+        "Unique identifier for each constructor's season standing"
+      ],
+      [
+        "raceId",
+        "Identifier for the race associated with the standing"
+      ],
+      [
+        "constructorId",
+        "Identifier for the constructor team in the standing"
+      ],
+      [
+        "points",
+        "Total points earned by the constructor in the race"
+      ],
+      [
+        "position",
+        "Standing position of the constructor after the race"
+      ],
+      [
+        "positionText",
+        "Textual representation of the constructor's position"
+      ],
+      [
+        "wins",
+        "Number of wins by the constructor up to that race"
+      ]
+    ],
+    "driverStandings": [
+      [
+        "driverStandingsId",
+        "Unique identifier for each driver's season standing"
+      ],
+      [
+        "raceId",
+        "Reference code for the constructor associated with the driver"
+      ],
+      [
+        "driverId",
+        "Identifier for the driver in the standing"
+      ],
+      [
+        "points",
+        "Total points earned by the driver in the race"
+      ],
+      [
+        "position",
+        "Standing position of the driver after the race"
+      ],
+      [
+        "positionText",
+        "Textual representation of the driver's position"
+      ],
+      [
+        "wins",
+        "Number of wins by the driver up to that race"
+      ]
+    ],
+    "lapTimes": [
+      [
+        "raceId",
+        "Identifier for the race in which the lap was recorded"
+      ],
+      [
+        "driverId",
+        "Identifier for the driver who completed the lap"
+      ],
+      [
+        "lap",
+        "Lap number within the race"
+      ],
+      [
+        "position",
+        "Driver's position at the end of the lap"
+      ],
+      [
+        "time",
+        "Lap completion time in standard format"
+      ],
+      [
+        "milliseconds",
+        "Lap completion time in milliseconds"
+      ]
+    ],
+    "pitStops": [
+      [
+        "raceId",
+        "Identifier for the race in which the pit stop occurred"
+      ],
+      [
+        "driverId",
+        "Identifier for the driver making the pit stop"
+      ],
+      [
+        "stop",
+        "Sequential number of the pit stop for the driver in the race"
+      ],
+      [
+        "lap",
+        "Lap number when the pit stop occurred"
+      ],
+      [
+        "time",
+        "Time of day when the pit stop occurred"
+      ],
+      [
+        "duration",
+        "Duration of the pit stop"
+      ],
+      [
+        "milliseconds",
+        "Pit stop duration in milliseconds"
+      ]
+    ],
+    "qualifying": [
+      [
+        "qualifyId",
+        "Unique identifier for each qualifying session entry"
+      ],
+      [
+        "raceId",
+        "Identifier for the race associated with the qualifying session"
+      ],
+      [
+        "driverId",
+        "Identifier for the driver in the qualifying session"
+      ],
+      [
+        "constructorId",
+        "Identifier for the constructor team in the qualifying session"
+      ],
+      [
+        "number",
+        "Racing number assigned to the driver for qualifying"
+      ],
+      [
+        "position",
+        "Qualifying position achieved by the driver"
+      ],
+      [
+        "q1",
+        "Driver's lap time in the first qualifying session (Q1)"
+      ],
+      [
+        "q2",
+        "Driver's lap time in the second qualifying session (Q2)"
+      ],
+      [
+        "q3",
+        "Driver's lap time in the third qualifying session (Q3)"
+      ]
+    ],
+    "status": [
+      [
+        "statusId",
+        "Unique identifier for each race status type"
+      ],
+      [
+        "status",
+        "Description of the race status (e.g., finished, retired)"
+      ]
+    ],
+    "results": [
+      [
+        "resultId",
+        "Unique identifier for each race result entry"
+      ],
+      [
+        "raceId",
+        "Identifier for the race associated with the result"
+      ],
+      [
+        "driverId",
+        "Identifier for the driver in the result"
+      ],
+      [
+        "constructorId",
+        "Identifier for the constructor team in the result"
+      ],
+      [
+        "number",
+        "Racing number assigned to the driver for the race"
+      ],
+      [
+        "grid",
+        "Starting grid position of the driver"
+      ],
+      [
+        "position",
+        "Finishing position of the driver in the race"
+      ],
+      [
+        "positionText",
+        "Textual representation of the driver's finishing position"
+      ],
+      [
+        "positionOrder",
+        "Order of the driver's finishing position"
+      ],
+      [
+        "points",
+        "Points awarded to the driver in the race"
+      ],
+      [
+        "laps",
+        "Number of laps completed by the driver"
+      ],
+      [
+        "time",
+        "Total race time for the driver"
+      ],
+      [
+        "milliseconds",
+        "Total race time in milliseconds"
+      ],
+      [
+        "fastestLap",
+        "Lap number of the driver's fastest lap"
+      ],
+      [
+        "rank",
+        "Rank of the driver's fastest lap in the race"
+      ],
+      [
+        "fastestLapTime",
+        "Time of the driver's fastest lap"
+      ],
+      [
+        "fastestLapSpeed",
+        "Average speed during the driver's fastest lap"
+      ],
+      [
+        "statusId",
+        "Identifier for the status or outcome of the driver in the race"
+      ]
+    ]
+  },
+  {
+    "db_id": "california_schools",
+    "frpm": [
+      [
+        "CDSCode",
+        "Unique identifier for each school, district, and county in California."
+      ],
+      [
+        "Academic Year",
+        "Academic year for the reported data."
+      ],
+      [
+        "County Code",
+        "Code representing the county where the school is located."
+      ],
+      [
+        "District Code",
+        "Code representing the school district."
+      ],
+      [
+        "School Code",
+        "Code representing the individual school."
+      ],
+      [
+        "County Name",
+        "Name of the county where the school is located."
+      ],
+      [
+        "District Name",
+        "Name of the school district."
+      ],
+      [
+        "School Name",
+        "Name of the school."
+      ],
+      [
+        "District Type",
+        "Type of school district (e.g., elementary, unified, high school)."
+      ],
+      [
+        "School Type",
+        "Type of school (e.g., elementary, middle, high school)."
+      ],
+      [
+        "Educational Option Type",
+        "Type of educational option offered by the school (e.g., alternative, continuation)."
+      ],
+      [
+        "NSLP Provision Status",
+        "Status of the school's participation in the National School Lunch Program (NSLP) provision."
+      ],
+      [
+        "Charter School (Y/N)",
+        "Indicates if the school is a charter school (Y/N)."
+      ],
+      [
+        "Charter School Number",
+        "Unique number assigned to the charter school."
+      ],
+      [
+        "Charter Funding Type",
+        "Type of funding received by the charter school."
+      ],
+      [
+        "IRC",
+        "Internal reporting code for the school or district."
+      ],
+      [
+        "Low Grade",
+        "Lowest grade level offered by the school."
+      ],
+      [
+        "High Grade",
+        "Highest grade level offered by the school."
+      ],
+      [
+        "Enrollment (K-12)",
+        "Total number of students enrolled in kindergarten through 12th grade."
+      ],
+      [
+        "Free Meal Count (K-12)",
+        "Number of students eligible for free meals in grades K-12."
+      ],
+      [
+        "Percent (%) Eligible Free (K-12)",
+        "Percentage of K-12 students eligible for free meals."
+      ],
+      [
+        "FRPM Count (K-12)",
+        "Number of students eligible for free or reduced-price meals in grades K-12."
+      ],
+      [
+        "Percent (%) Eligible FRPM (K-12)",
+        "Percentage of K-12 students eligible for free or reduced-price meals."
+      ],
+      [
+        "Enrollment (Ages 5-17)",
+        "Total number of students enrolled ages 5-17."
+      ],
+      [
+        "Free Meal Count (Ages 5-17)",
+        "Number of students ages 5-17 eligible for free meals."
+      ],
+      [
+        "Percent (%) Eligible Free (Ages 5-17)",
+        "Percentage of students ages 5-17 eligible for free meals."
+      ],
+      [
+        "FRPM Count (Ages 5-17)",
+        "Number of students ages 5-17 eligible for free or reduced-price meals."
+      ],
+      [
+        "Percent (%) Eligible FRPM (Ages 5-17)",
+        "Percentage of students ages 5-17 eligible for free or reduced-price meals."
+      ],
+      [
+        "2013-14 CALPADS Fall 1 Certification Status",
+        "Certification status for CALPADS Fall 1 data collection in 2013-14."
+      ]
+    ],
+    "satscores": [
+      [
+        "cds",
+        "Unique identifier for the school, district, and county."
+      ],
+      [
+        "rtype",
+        "Type of record (e.g., school, district, county)."
+      ],
+      [
+        "sname",
+        "Name of the school."
+      ],
+      [
+        "dname",
+        "Name of the school district."
+      ],
+      [
+        "cname",
+        "Name of the county where the school is located."
+      ],
+      [
+        "enroll12",
+        "Total enrollment in grades 1 through 12."
+      ],
+      [
+        "NumTstTakr",
+        "Number of students who took the SAT at the school."
+      ],
+      [
+        "AvgScrRead",
+        "Average SAT reading score for test takers."
+      ],
+      [
+        "AvgScrMath",
+        "Average SAT math score for test takers."
+      ],
+      [
+        "AvgScrWrite",
+        "Average SAT writing score for test takers."
+      ],
+      [
+        "NumGE1500",
+        "Number of students with total SAT scores of 1500 or higher."
+      ]
+    ],
+    "schools": [
+      [
+        "CDSCode",
+        "Unique identifier for each school, district, and county."
+      ],
+      [
+        "NCESDist",
+        "Seven-digit NCES school district identification number."
+      ],
+      [
+        "NCESSchool",
+        "Five-digit NCES school identification number."
+      ],
+      [
+        "StatusType",
+        "Status of the school district (e.g., active, closed)."
+      ],
+      [
+        "County",
+        "Name of the county where the school is located."
+      ],
+      [
+        "District",
+        "Name of the school district."
+      ],
+      [
+        "School",
+        "Name of the school."
+      ],
+      [
+        "Street",
+        "Abbreviated street address of the physical location."
+      ],
+      [
+        "StreetAbr",
+        "Full street address of the physical location."
+      ],
+      [
+        "City",
+        "City where the school is located."
+      ],
+      [
+        "Zip",
+        "ZIP code of the school's location."
+      ],
+      [
+        "State",
+        "State where the school is located."
+      ],
+      [
+        "MailStreet",
+        "Abbreviated mailing street address."
+      ],
+      [
+        "MailStrAbr",
+        "Full mailing street address."
+      ],
+      [
+        "MailCity",
+        "Mailing city."
+      ],
+      [
+        "MailZip",
+        "Mailing ZIP code."
+      ],
+      [
+        "MailState",
+        "Mailing state."
+      ],
+      [
+        "Phone",
+        "Phone number for the school, district, or authority."
+      ],
+      [
+        "Ext",
+        "Phone number extension."
+      ],
+      [
+        "Website",
+        "Website address for the school, district, or authority."
+      ],
+      [
+        "OpenDate",
+        "Date the school opened."
+      ],
+      [
+        "ClosedDate",
+        "Date the school closed, if applicable."
+      ],
+      [
+        "Charter",
+        "Indicates if the school is a charter school."
+      ],
+      [
+        "CharterNum",
+        "Unique number assigned to the charter school."
+      ],
+      [
+        "FundingType",
+        "Type of funding received by the charter school."
+      ],
+      [
+        "DOC",
+        "Numeric code identifying the district ownership type."
+      ],
+      [
+        "DOCType",
+        "Text description of the district ownership code type."
+      ],
+      [
+        "SOC",
+        "Numeric code identifying the school ownership type."
+      ],
+      [
+        "SOCType",
+        "Text description of the school ownership code type."
+      ],
+      [
+        "EdOpsCode",
+        "Short code describing the type of education option offered."
+      ],
+      [
+        "EdOpsName",
+        "Name of the educational option offered."
+      ],
+      [
+        "EILCode",
+        "Short code describing the educational instruction level relative to grade range."
+      ],
+      [
+        "EILName",
+        "Full description of the educational instruction level relative to grade range."
+      ],
+      [
+        "GSoffered",
+        "Grade span offered by the school, district, or authority."
+      ],
+      [
+        "GSserved",
+        "Grade span served as reported in the most recent CALPADS data."
+      ],
+      [
+        "Virtual",
+        "Type of virtual instruction provided by the school."
+      ],
+      [
+        "Magnet",
+        "Indicates if the school is a magnet school or offers a magnet program."
+      ],
+      [
+        "Latitude",
+        "Latitude coordinate of the school's location."
+      ],
+      [
+        "Longitude",
+        "Longitude coordinate of the school's location."
+      ],
+      [
+        "AdmFName1",
+        "First name of the primary administrator."
+      ],
+      [
+        "AdmLName1",
+        "Last name of the primary administrator."
+      ],
+      [
+        "AdmEmail1",
+        "Email address of the primary administrator."
+      ],
+      [
+        "AdmFName2",
+        "First name of the second administrator."
+      ],
+      [
+        "AdmLName2",
+        "Last name of the second administrator."
+      ],
+      [
+        "AdmEmail2",
+        "Email address of the second administrator."
+      ],
+      [
+        "AdmFName3",
+        "First name of the third administrator."
+      ],
+      [
+        "AdmLName3",
+        "Last name of the third administrator."
+      ],
+      [
+        "AdmEmail3",
+        "Email address of the third administrator."
+      ],
+      [
+        "LastUpdate",
+        "Date of the last update to the record."
+      ]
+    ]
+  },
+  {
+    "db_id": "card_games",
+    "cards": [
+      [
+        "id",
+        "Unique identifier for each card entry."
+      ],
+      [
+        "artist",
+        "Name of the artist who illustrated the card."
+      ],
+      [
+        "asciiName",
+        "Card name formatted in ASCII characters without special symbols."
+      ],
+      [
+        "availability",
+        "List of available printing types for the card."
+      ],
+      [
+        "borderColor",
+        "Color of the card's border."
+      ],
+      [
+        "cardKingdomFoilId",
+        "Identifier for the card's foil version on Card Kingdom."
+      ],
+      [
+        "cardKingdomId",
+        "Identifier for the card on Card Kingdom."
+      ],
+      [
+        "colorIdentity",
+        "All colors present in mana cost, color indicator, and card text."
+      ],
+      [
+        "colorIndicator",
+        "Colors indicated by the color indicator symbol on the card."
+      ],
+      [
+        "colors",
+        "Colors present in the card's mana cost and color indicator."
+      ],
+      [
+        "convertedManaCost",
+        "Converted mana cost or mana value of the card."
+      ],
+      [
+        "duelDeck",
+        "Duel deck indicator showing which duel deck the card belongs to."
+      ],
+      [
+        "edhrecRank",
+        "Card's popularity rank on EDHRec."
+      ],
+      [
+        "faceConvertedManaCost",
+        "Converted mana cost or mana value for a specific card face."
+      ],
+      [
+        "faceName",
+        "Name displayed on the card face."
+      ],
+      [
+        "flavorName",
+        "Promotional name printed above the main card name, with no game effect."
+      ],
+      [
+        "flavorText",
+        "Flavor text printed in italics below the rules text."
+      ],
+      [
+        "frameEffects",
+        "Visual effects applied to the card frame."
+      ],
+      [
+        "frameVersion",
+        "Version of the card's frame style."
+      ],
+      [
+        "hand",
+        "Modifier for starting maximum hand size."
+      ],
+      [
+        "hasAlternativeDeckLimit",
+        "Indicates if the card allows more than four copies in a deck."
+      ],
+      [
+        "hasContentWarning",
+        "Indicates if the card contains sensitive content as marked by Wizards of the Coast."
+      ],
+      [
+        "hasFoil",
+        "Indicates if the card is available in foil."
+      ],
+      [
+        "hasNonFoil",
+        "Indicates if the card is available in non-foil."
+      ],
+      [
+        "isAlternative",
+        "Indicates if the card is an alternate version of an original printing."
+      ],
+      [
+        "isFullArt",
+        "Indicates if the card features full artwork."
+      ],
+      [
+        "isOnlineOnly",
+        "Indicates if the card is only available in online versions."
+      ],
+      [
+        "isOversized",
+        "Indicates if the card is oversized."
+      ],
+      [
+        "isPromo",
+        "Indicates if the card is a promotional printing."
+      ],
+      [
+        "isReprint",
+        "Indicates if the card has been reprinted."
+      ],
+      [
+        "isReserved",
+        "Indicates if the card is on the Magic: The Gathering Reserved List."
+      ],
+      [
+        "isStarter",
+        "Indicates if the card is included in starter decks such as Planeswalker or Brawl decks."
+      ],
+      [
+        "isStorySpotlight",
+        "Indicates if the card is a Story Spotlight card."
+      ],
+      [
+        "isTextless",
+        "Indicates if the card lacks a text box."
+      ],
+      [
+        "isTimeshifted",
+        "Indicates if the card is time-shifted."
+      ],
+      [
+        "keywords",
+        "List of keywords associated with the card."
+      ],
+      [
+        "layout",
+        "Type of card layout, such as 'token' for token cards."
+      ],
+      [
+        "leadershipSkills",
+        "Formats in which the card is legal to be used as a commander."
+      ],
+      [
+        "life",
+        "Modifier for starting life total, with plus or minus sign."
+      ],
+      [
+        "loyalty",
+        "Starting loyalty value for the card."
+      ],
+      [
+        "manaCost",
+        "Mana cost of the card, with each value enclosed in brackets."
+      ],
+      [
+        "mcmId",
+        "Identifier for the card on Magic Card Market."
+      ],
+      [
+        "mcmMetaId",
+        "Meta identifier for the card on Magic Card Market."
+      ],
+      [
+        "mtgArenaId",
+        "Identifier for the card on MTG Arena."
+      ],
+      [
+        "mtgjsonV4Id",
+        "Unique identifier for the card in MTGJSON v4."
+      ],
+      [
+        "mtgoFoilId",
+        "Identifier for the card's foil version on MTGO."
+      ],
+      [
+        "mtgoId",
+        "Identifier for the card on MTGO."
+      ],
+      [
+        "multiverseId",
+        "Multiverse identifier for the card."
+      ],
+      [
+        "name",
+        "Official name of the card."
+      ],
+      [
+        "number",
+        "Card's collector number within its set."
+      ],
+      [
+        "originalReleaseDate",
+        "Original release date of the card."
+      ],
+      [
+        "originalText",
+        "Original rules text of the card."
+      ],
+      [
+        "originalType",
+        "Original type line of the card."
+      ],
+      [
+        "otherFaceIds",
+        "Identifiers for other faces of the card, if applicable."
+      ],
+      [
+        "power",
+        "Power value of the card."
+      ],
+      [
+        "printings",
+        "List of set codes where the card has been printed."
+      ],
+      [
+        "promoTypes",
+        "List of promotional types associated with the card."
+      ],
+      [
+        "purchaseUrls",
+        "URLs for purchasing the card online."
+      ],
+      [
+        "rarity",
+        "Rarity classification of the card."
+      ],
+      [
+        "scryfallId",
+        "Identifier for the card on Scryfall."
+      ],
+      [
+        "scryfallIllustrationId",
+        "Illustration identifier for the card on Scryfall."
+      ],
+      [
+        "scryfallOracleId",
+        "Oracle identifier for the card on Scryfall."
+      ],
+      [
+        "setCode",
+        "Set code indicating which set the card belongs to."
+      ],
+      [
+        "side",
+        "Identifier for the card's side (e.g., front or back)."
+      ],
+      [
+        "subtypes",
+        "List of subtypes found after the em-dash in the card's type line."
+      ],
+      [
+        "supertypes",
+        "List of supertypes found before the em-dash in the card's type line."
+      ],
+      [
+        "tcgplayerProductId",
+        "Product identifier for the card on TCGplayer."
+      ],
+      [
+        "text",
+        "Rules text describing the card's abilities and effects."
+      ],
+      [
+        "toughness",
+        "Toughness value of the card."
+      ],
+      [
+        "type",
+        "Full type line of the card, including supertypes and subtypes."
+      ],
+      [
+        "types",
+        "List of all card types, including special and variant types."
+      ],
+      [
+        "uuid",
+        "Universally unique identifier (UUID) generated by MTGJSON."
+      ],
+      [
+        "variations",
+        "Identifiers for card variations."
+      ],
+      [
+        "watermark",
+        "Name of the watermark displayed on the card."
+      ]
+    ],
+    "foreign_data": [
+      [
+        "id",
+        "Unique identifier for each foreign data entry."
+      ],
+      [
+        "flavorText",
+        "Flavor text of the card in a foreign language."
+      ],
+      [
+        "language",
+        "Language of the card entry."
+      ],
+      [
+        "multiverseid",
+        "Multiverse identifier for the card in a foreign language."
+      ],
+      [
+        "name",
+        "Card name in a foreign language."
+      ],
+      [
+        "text",
+        "Rules text of the card in a foreign language."
+      ],
+      [
+        "type",
+        "Type line of the card in a foreign language, including supertypes and subtypes."
+      ],
+      [
+        "uuid",
+        "Universally unique identifier for the foreign data entry."
+      ]
+    ],
+    "legalities": [
+      [
+        "id",
+        "Unique identifier for each legality entry."
+      ],
+      [
+        "format",
+        "Format of play for which the card's legality is specified."
+      ],
+      [
+        "status",
+        "Status indicating the card's legality in the specified format."
+      ],
+      [
+        "uuid",
+        "Universally unique identifier for the legality entry."
+      ]
+    ],
+    "sets": [
+      [
+        "id",
+        "Unique identifier for each card set."
+      ],
+      [
+        "baseSetSize",
+        "Number of cards in the set."
+      ],
+      [
+        "block",
+        "Name of the block the set belongs to."
+      ],
+      [
+        "booster",
+        "Breakdown of card possibilities and weights in booster packs."
+      ],
+      [
+        "code",
+        "Set code for the set."
+      ],
+      [
+        "isFoilOnly",
+        "Indicates if the set is available only in foil."
+      ],
+      [
+        "isForeignOnly",
+        "Indicates if the set is available only outside the United States."
+      ],
+      [
+        "isNonFoilOnly",
+        "Indicates if the set is available only in non-foil."
+      ],
+      [
+        "isOnlineOnly",
+        "Indicates if the set is available only in online versions."
+      ],
+      [
+        "isPartialPreview",
+        "Indicates if the set is still in preview and not fully released."
+      ],
+      [
+        "keyruneCode",
+        "Keyrune code used for set image icons."
+      ],
+      [
+        "mcmId",
+        "Set identifier for Magic Card Market."
+      ],
+      [
+        "mcmIdExtras",
+        "Split set identifier for Magic Card Market if the set is divided into two parts."
+      ],
+      [
+        "mcmName",
+        "Name of the set on Magic Card Market."
+      ],
+      [
+        "mtgoCode",
+        "Set code as it appears on Magic: The Gathering Online."
+      ],
+      [
+        "name",
+        "Official name of the set."
+      ],
+      [
+        "parentCode",
+        "Parent set code for set variations such as promotions or guild kits."
+      ],
+      [
+        "releaseDate",
+        "Release date of the set in ISO 8601 format."
+      ],
+      [
+        "tcgplayerGroupId",
+        "Group identifier for the set on TCGplayer."
+      ],
+      [
+        "totalSetSize",
+        "Total number of cards in the set, including promotional and supplemental products."
+      ],
+      [
+        "type",
+        "Expansion type of the set."
+      ]
+    ],
+    "set_translations": [
+      [
+        "id",
+        "Unique identifier for each set translation entry."
+      ],
+      [
+        "language",
+        "Language of the set translation."
+      ],
+      [
+        "setCode",
+        "Set code for the translated set."
+      ],
+      [
+        "translation",
+        "Translated name of the set."
+      ]
+    ],
+    "rulings": [
+      [
+        "id",
+        "Unique identifier for each ruling entry."
+      ],
+      [
+        "date",
+        "Date the ruling was issued."
+      ],
+      [
+        "text",
+        "Description or explanation of the card ruling."
+      ],
+      [
+        "uuid",
+        "Universally unique identifier for the ruling entry."
+      ]
+    ]
+  },
+  {
+    "db_id": "european_football_2",
+    "Player_Attributes": [
+      [
+        "id",
+        "Unique identifier for each player attribute record"
+      ],
+      [
+        "player_fifa_api_id",
+        "FIFA API identifier for the player"
+      ],
+      [
+        "player_api_id",
+        "API identifier for the player"
+      ],
+      [
+        "date",
+        "Date when player attributes were recorded"
+      ],
+      [
+        "overall_rating",
+        "Overall skill rating of the player at the recorded date"
+      ],
+      [
+        "potential",
+        "Player's potential maximum rating"
+      ],
+      [
+        "preferred_foot",
+        "Player's preferred foot for attacking play"
+      ],
+      [
+        "attacking_work_rate",
+        "Player's tendency to contribute offensively"
+      ],
+      [
+        "defensive_work_rate",
+        "Player's tendency to contribute defensively"
+      ],
+      [
+        "crossing",
+        "Player's ability to deliver accurate crosses"
+      ],
+      [
+        "finishing",
+        "Player's ability to finish scoring chances"
+      ],
+      [
+        "heading_accuracy",
+        "Player's accuracy in heading the ball"
+      ],
+      [
+        "short_passing",
+        "Player's proficiency in short passing"
+      ],
+      [
+        "volleys",
+        "Player's skill in volleying the ball"
+      ],
+      [
+        "dribbling",
+        "Player's dribbling ability"
+      ],
+      [
+        "curve",
+        "Player's skill in curving the ball"
+      ],
+      [
+        "free_kick_accuracy",
+        "Player's accuracy in taking free kicks"
+      ],
+      [
+        "long_passing",
+        "Player's proficiency in long passing"
+      ],
+      [
+        "ball_control",
+        "Player's control of the ball"
+      ],
+      [
+        "acceleration",
+        "Player's acceleration speed"
+      ],
+      [
+        "sprint_speed",
+        "Player's top sprint speed"
+      ],
+      [
+        "agility",
+        "Player's agility"
+      ],
+      [
+        "reactions",
+        "Player's responsiveness to in-game events"
+      ],
+      [
+        "balance",
+        "Player's balance while moving or under pressure"
+      ],
+      [
+        "shot_power",
+        "Player's shot power"
+      ],
+      [
+        "jumping",
+        "Player's jumping ability"
+      ],
+      [
+        "stamina",
+        "Player's stamina during matches"
+      ],
+      [
+        "strength",
+        "Player's physical strength"
+      ],
+      [
+        "long_shots",
+        "Player's ability to take long-range shots"
+      ],
+      [
+        "aggression",
+        "Player's level of aggression"
+      ],
+      [
+        "interceptions",
+        "Player's ability to intercept passes"
+      ],
+      [
+        "positioning",
+        "Player's effectiveness in attacking positions"
+      ],
+      [
+        "vision",
+        "Player's vision for creating opportunities"
+      ],
+      [
+        "penalties",
+        "Player's skill in taking penalty kicks"
+      ],
+      [
+        "marking",
+        "Player's marking ability against opponents"
+      ],
+      [
+        "standing_tackle",
+        "Player's skill in standing tackles"
+      ],
+      [
+        "sliding_tackle",
+        "Player's skill in sliding tackles"
+      ],
+      [
+        "gk_diving",
+        "Player's ability in goalkeeper diving"
+      ],
+      [
+        "gk_handling",
+        "Player's ability in goalkeeper handling"
+      ],
+      [
+        "gk_kicking",
+        "Player's ability in goalkeeper kicking"
+      ],
+      [
+        "gk_positioning",
+        "Player's ability in goalkeeper positioning"
+      ],
+      [
+        "gk_reflexes",
+        "Player's ability in goalkeeper reflexes"
+      ]
+    ],
+    "Player": [
+      [
+        "id",
+        "Unique identifier for each player"
+      ],
+      [
+        "player_api_id",
+        "API identifier for the player"
+      ],
+      [
+        "player_name",
+        "Full name of the player"
+      ],
+      [
+        "player_fifa_api_id",
+        "FIFA API identifier for the player"
+      ],
+      [
+        "birthday",
+        "Player's date of birth"
+      ],
+      [
+        "height",
+        "Player's height in centimeters"
+      ],
+      [
+        "weight",
+        "Player's weight in kilograms"
+      ]
+    ],
+    "League": [
+      [
+        "id",
+        "Unique identifier for each league"
+      ],
+      [
+        "country_id",
+        "Identifier for the country associated with the league"
+      ],
+      [
+        "name",
+        "Name of the league"
+      ]
+    ],
+    "Country": [
+      [
+        "id",
+        "Unique identifier for each country"
+      ],
+      [
+        "name",
+        "Name of the country"
+      ]
+    ],
+    "Team": [
+      [
+        "id",
+        "Unique identifier for each team"
+      ],
+      [
+        "team_api_id",
+        "API identifier for the team"
+      ],
+      [
+        "team_fifa_api_id",
+        "FIFA API identifier for the team"
+      ],
+      [
+        "team_long_name",
+        "Full name of the team"
+      ],
+      [
+        "team_short_name",
+        "Short name or abbreviation of the team"
+      ]
+    ],
+    "Team_Attributes": [
+      [
+        "id",
+        "Unique identifier for each team attribute record"
+      ],
+      [
+        "team_fifa_api_id",
+        "FIFA API identifier for the team"
+      ],
+      [
+        "team_api_id",
+        "API identifier for the team"
+      ],
+      [
+        "date",
+        "Date when team attributes were recorded"
+      ],
+      [
+        "buildUpPlaySpeed",
+        "Speed at which the team builds up attacks"
+      ],
+      [
+        "buildUpPlaySpeedClass",
+        "Classification of build-up play speed"
+      ],
+      [
+        "buildUpPlayDribbling",
+        "Frequency or tendency of dribbling in build-up play"
+      ],
+      [
+        "buildUpPlayDribblingClass",
+        "Classification of build-up play dribbling"
+      ],
+      [
+        "buildUpPlayPassing",
+        "Influence on passing distance and teammate support in build-up play"
+      ],
+      [
+        "buildUpPlayPassingClass",
+        "Classification of build-up play passing"
+      ],
+      [
+        "buildUpPlayPositioningClass",
+        "Team's freedom of movement in the first two-thirds of the pitch"
+      ],
+      [
+        "chanceCreationPassing",
+        "Level of risk in passing decisions and run support during chance creation"
+      ],
+      [
+        "chanceCreationPassingClass",
+        "Classification of chance creation passing"
+      ],
+      [
+        "chanceCreationCrossing",
+        "Frequency of crosses into the box during chance creation"
+      ],
+      [
+        "chanceCreationCrossingClass",
+        "Classification of chance creation crossing"
+      ],
+      [
+        "chanceCreationShooting",
+        "Frequency of shots taken during chance creation"
+      ],
+      [
+        "chanceCreationShootingClass",
+        "Classification of chance creation shooting"
+      ],
+      [
+        "chanceCreationPositioningClass",
+        "Team's freedom of movement in the final third of the pitch"
+      ],
+      [
+        "defencePressure",
+        "How high up the pitch the team starts pressuring opponents"
+      ],
+      [
+        "defencePressureClass",
+        "Classification of defensive pressure"
+      ],
+      [
+        "defenceAggression",
+        "Team's approach to tackling the ball carrier"
+      ],
+      [
+        "defenceAggressionClass",
+        "Classification of defensive aggression"
+      ],
+      [
+        "defenceTeamWidth",
+        "Extent to which the team shifts toward the ball side"
+      ],
+      [
+        "defenceTeamWidthClass",
+        "Classification of defensive team width"
+      ],
+      [
+        "defenceDefenderLineClass",
+        "Shape and strategy of the defensive line"
+      ]
+    ],
+    "Match": [
+      [
+        "id",
+        "Unique identifier for each match"
+      ],
+      [
+        "country_id",
+        "Identifier for the country where the match took place"
+      ],
+      [
+        "league_id",
+        "Identifier for the league of the match"
+      ],
+      [
+        "season",
+        "Season in which the match was played"
+      ],
+      [
+        "stage",
+        "Stage or round of the match within the season"
+      ],
+      [
+        "date",
+        "Date when the match was played"
+      ],
+      [
+        "match_api_id",
+        "API identifier for the match"
+      ],
+      [
+        "home_team_api_id",
+        "API identifier for the home team"
+      ],
+      [
+        "away_team_api_id",
+        "API identifier for the away team"
+      ],
+      [
+        "home_team_goal",
+        "Number of goals scored by the home team"
+      ],
+      [
+        "away_team_goal",
+        "Number of goals scored by the away team"
+      ],
+      [
+        "home_player_X1",
+        "X-coordinate of home player 1's position on the pitch"
+      ],
+      [
+        "home_player_X2",
+        "X-coordinate of home player 2's position on the pitch"
+      ],
+      [
+        "home_player_X3",
+        "X-coordinate of home player 3's position on the pitch"
+      ],
+      [
+        "home_player_X4",
+        "X-coordinate of home player 4's position on the pitch"
+      ],
+      [
+        "home_player_X5",
+        "X-coordinate of home player 5's position on the pitch"
+      ],
+      [
+        "home_player_X6",
+        "X-coordinate of home player 6's position on the pitch"
+      ],
+      [
+        "home_player_X7",
+        "X-coordinate of home player 7's position on the pitch"
+      ],
+      [
+        "home_player_X8",
+        "X-coordinate of home player 8's position on the pitch"
+      ],
+      [
+        "home_player_X9",
+        "X-coordinate of home player 9's position on the pitch"
+      ],
+      [
+        "home_player_X10",
+        "X-coordinate of home player 10's position on the pitch"
+      ],
+      [
+        "home_player_X11",
+        "X-coordinate of home player 11's position on the pitch"
+      ],
+      [
+        "away_player_X1",
+        "X-coordinate of away player 1's position on the pitch"
+      ],
+      [
+        "away_player_X2",
+        "X-coordinate of away player 2's position on the pitch"
+      ],
+      [
+        "away_player_X3",
+        "X-coordinate of away player 3's position on the pitch"
+      ],
+      [
+        "away_player_X4",
+        "X-coordinate of away player 4's position on the pitch"
+      ],
+      [
+        "away_player_X5",
+        "X-coordinate of away player 5's position on the pitch"
+      ],
+      [
+        "away_player_X6",
+        "X-coordinate of away player 6's position on the pitch"
+      ],
+      [
+        "away_player_X7",
+        "X-coordinate of away player 7's position on the pitch"
+      ],
+      [
+        "away_player_X8",
+        "X-coordinate of away player 8's position on the pitch"
+      ],
+      [
+        "away_player_X9",
+        "X-coordinate of away player 9's position on the pitch"
+      ],
+      [
+        "away_player_X10",
+        "X-coordinate of away player 10's position on the pitch"
+      ],
+      [
+        "away_player_X11",
+        "X-coordinate of away player 11's position on the pitch"
+      ],
+      [
+        "home_player_Y1",
+        "Y-coordinate of home player 1's position on the pitch"
+      ],
+      [
+        "home_player_Y2",
+        "Y-coordinate of home player 2's position on the pitch"
+      ],
+      [
+        "home_player_Y3",
+        "Y-coordinate of home player 3's position on the pitch"
+      ],
+      [
+        "home_player_Y4",
+        "Y-coordinate of home player 4's position on the pitch"
+      ],
+      [
+        "home_player_Y5",
+        "Y-coordinate of home player 5's position on the pitch"
+      ],
+      [
+        "home_player_Y6",
+        "Y-coordinate of home player 6's position on the pitch"
+      ],
+      [
+        "home_player_Y7",
+        "Y-coordinate of home player 7's position on the pitch"
+      ],
+      [
+        "home_player_Y8",
+        "Y-coordinate of home player 8's position on the pitch"
+      ],
+      [
+        "home_player_Y9",
+        "Y-coordinate of home player 9's position on the pitch"
+      ],
+      [
+        "home_player_Y10",
+        "Y-coordinate of home player 10's position on the pitch"
+      ],
+      [
+        "home_player_Y11",
+        "Y-coordinate of home player 11's position on the pitch"
+      ],
+      [
+        "away_player_Y1",
+        "Y-coordinate of away player 1's position on the pitch"
+      ],
+      [
+        "away_player_Y2",
+        "Y-coordinate of away player 2's position on the pitch"
+      ],
+      [
+        "away_player_Y3",
+        "Y-coordinate of away player 3's position on the pitch"
+      ],
+      [
+        "away_player_Y4",
+        "Y-coordinate of away player 4's position on the pitch"
+      ],
+      [
+        "away_player_Y5",
+        "Y-coordinate of away player 5's position on the pitch"
+      ],
+      [
+        "away_player_Y6",
+        "Y-coordinate of away player 6's position on the pitch"
+      ],
+      [
+        "away_player_Y7",
+        "Y-coordinate of away player 7's position on the pitch"
+      ],
+      [
+        "away_player_Y8",
+        "Y-coordinate of away player 8's position on the pitch"
+      ],
+      [
+        "away_player_Y9",
+        "Y-coordinate of away player 9's position on the pitch"
+      ],
+      [
+        "away_player_Y10",
+        "Y-coordinate of away player 10's position on the pitch"
+      ],
+      [
+        "away_player_Y11",
+        "Y-coordinate of away player 11's position on the pitch"
+      ],
+      [
+        "home_player_1",
+        "Identifier for home player 1 in the match lineup"
+      ],
+      [
+        "home_player_2",
+        "Identifier for home player 2 in the match lineup"
+      ],
+      [
+        "home_player_3",
+        "Identifier for home player 3 in the match lineup"
+      ],
+      [
+        "home_player_4",
+        "Identifier for home player 4 in the match lineup"
+      ],
+      [
+        "home_player_5",
+        "Identifier for home player 5 in the match lineup"
+      ],
+      [
+        "home_player_6",
+        "Identifier for home player 6 in the match lineup"
+      ],
+      [
+        "home_player_7",
+        "Identifier for home player 7 in the match lineup"
+      ],
+      [
+        "home_player_8",
+        "Identifier for home player 8 in the match lineup"
+      ],
+      [
+        "home_player_9",
+        "Identifier for home player 9 in the match lineup"
+      ],
+      [
+        "home_player_10",
+        "Identifier for home player 10 in the match lineup"
+      ],
+      [
+        "home_player_11",
+        "Identifier for home player 11 in the match lineup"
+      ],
+      [
+        "away_player_1",
+        "Identifier for away player 1 in the match lineup"
+      ],
+      [
+        "away_player_2",
+        "Identifier for away player 2 in the match lineup"
+      ],
+      [
+        "away_player_3",
+        "Identifier for away player 3 in the match lineup"
+      ],
+      [
+        "away_player_4",
+        "Identifier for away player 4 in the match lineup"
+      ],
+      [
+        "away_player_5",
+        "Identifier for away player 5 in the match lineup"
+      ],
+      [
+        "away_player_6",
+        "Identifier for away player 6 in the match lineup"
+      ],
+      [
+        "away_player_7",
+        "Identifier for away player 7 in the match lineup"
+      ],
+      [
+        "away_player_8",
+        "Identifier for away player 8 in the match lineup"
+      ],
+      [
+        "away_player_9",
+        "Identifier for away player 9 in the match lineup"
+      ],
+      [
+        "away_player_10",
+        "Identifier for away player 10 in the match lineup"
+      ],
+      [
+        "away_player_11",
+        "Identifier for away player 11 in the match lineup"
+      ],
+      [
+        "goal",
+        "Total number of goals scored in the match"
+      ],
+      [
+        "shoton",
+        "Number of shots on target during the match"
+      ],
+      [
+        "shotoff",
+        "Number of shots off target during the match"
+      ],
+      [
+        "foulcommit",
+        "Number of fouls committed in the match"
+      ],
+      [
+        "card",
+        "Number of cards issued in the match"
+      ],
+      [
+        "cross",
+        "Number of crosses delivered during the match"
+      ],
+      [
+        "corner",
+        "Number of corner kicks awarded in the match"
+      ],
+      [
+        "possession",
+        "Ball possession duration during the match"
+      ],
+      [
+        "B365H",
+        "Bet365 odds for home team win"
+      ],
+      [
+        "B365D",
+        "Bet365 odds for draw"
+      ],
+      [
+        "B365A",
+        "Bet365 odds for away team win"
+      ],
+      [
+        "BWH",
+        "Bet & Win odds for home team win"
+      ],
+      [
+        "BWD",
+        "Bet & Win odds for draw"
+      ],
+      [
+        "BWA",
+        "Bet & Win odds for away team win"
+      ],
+      [
+        "IWH",
+        "Interwetten odds for home team win"
+      ],
+      [
+        "IWD",
+        "Interwetten odds for draw"
+      ],
+      [
+        "IWA",
+        "Interwetten odds for away team win"
+      ],
+      [
+        "LBH",
+        "Ladbrokes odds for home team win"
+      ],
+      [
+        "LBD",
+        "Ladbrokes odds for draw"
+      ],
+      [
+        "LBA",
+        "Ladbrokes odds for away team win"
+      ],
+      [
+        "PSH",
+        "Pinnacle Sports odds for home team win"
+      ],
+      [
+        "PSD",
+        "Pinnacle Sports odds for draw"
+      ],
+      [
+        "PSA",
+        "Pinnacle Sports odds for away team win"
+      ],
+      [
+        "WHH",
+        "William Hill odds for home team win"
+      ],
+      [
+        "WHD",
+        "William Hill odds for draw"
+      ],
+      [
+        "WHA",
+        "William Hill odds for away team win"
+      ],
+      [
+        "SJH",
+        "Stan James odds for home team win"
+      ],
+      [
+        "SJD",
+        "Stan James odds for draw"
+      ],
+      [
+        "SJA",
+        "Stan James odds for away team win"
+      ],
+      [
+        "VCH",
+        "VC Bet odds for home team win"
+      ],
+      [
+        "VCD",
+        "VC Bet odds for draw"
+      ],
+      [
+        "VCA",
+        "VC Bet odds for away team win"
+      ],
+      [
+        "GBH",
+        "Gamebookers odds for home team win"
+      ],
+      [
+        "GBD",
+        "Gamebookers odds for draw"
+      ],
+      [
+        "GBA",
+        "Gamebookers odds for away team win"
+      ],
+      [
+        "BSH",
+        "Betsson odds for home team win"
+      ],
+      [
+        "BSD",
+        "Betsson odds for draw"
+      ],
+      [
+        "BSA",
+        "Betsson odds for away team win"
+      ]
+    ]
+  },
+  {
+    "db_id": "toxicology",
+    "atom": [
+      [
+        "atom_id",
+        "Unique identification for each atom"
+      ],
+      [
+        "molecule_id",
+        "Identifier for the molecule containing the atom"
+      ],
+      [
+        "element",
+        "Chemical element represented by the atom"
+      ]
+    ],
+    "bond": [
+      [
+        "bond_id",
+        "Unique identification for each bond"
+      ],
+      [
+        "molecule_id",
+        "Identifier for the molecule containing the bond"
+      ],
+      [
+        "bond_type",
+        "Type or classification of the bond"
+      ]
+    ],
+    "connected": [
+      [
+        "atom_id",
+        "Identifier of the first atom in the connection"
+      ],
+      [
+        "atom_id2",
+        "Identifier of the second atom in the connection"
+      ],
+      [
+        "bond_id",
+        "Identifier for the bond connecting the two atoms"
+      ]
+    ],
+    "molecule": [
+      [
+        "molecule_id",
+        "Unique identification for each molecule"
+      ],
+      [
+        "label",
+        "Indicates whether the molecule is carcinogenic"
+      ]
+    ]
+  },
+  {
+    "db_id": "student_club",
+    "event": [
+      [
+        "event_id",
+        "Unique identification for each event"
+      ],
+      [
+        "event_name",
+        "Name or title of the event"
+      ],
+      [
+        "event_date",
+        "Date when the event is scheduled or occurred"
+      ],
+      [
+        "type",
+        "Type of event, such as game, social, or election"
+      ],
+      [
+        "notes",
+        "Additional notes or comments about the event"
+      ],
+      [
+        "location",
+        "Venue address or name where the event takes place"
+      ],
+      [
+        "status",
+        "Current status of the event: planning, opened, or closed"
+      ]
+    ],
+    "major": [
+      [
+        "major_id",
+        "Unique identification for each major"
+      ],
+      [
+        "major_name",
+        "Name of the academic major"
+      ],
+      [
+        "department",
+        "Department offering the major"
+      ],
+      [
+        "college",
+        "College housing the department for the major"
+      ]
+    ],
+    "zip_code": [
+      [
+        "zip_code",
+        "Five-digit postal ZIP code"
+      ],
+      [
+        "type",
+        "Classification of the ZIP code"
+      ],
+      [
+        "city",
+        "City associated with the ZIP code"
+      ],
+      [
+        "county",
+        "County associated with the ZIP code"
+      ],
+      [
+        "state",
+        "State name for the ZIP code"
+      ],
+      [
+        "short_state",
+        "Abbreviated state code for the ZIP code"
+      ]
+    ],
+    "attendance": [
+      [
+        "link_to_event",
+        "Reference to the attended event"
+      ],
+      [
+        "link_to_member",
+        "Reference to the attending member"
+      ]
+    ],
+    "budget": [
+      [
+        "budget_id",
+        "Unique identification for each budget entry"
+      ],
+      [
+        "category",
+        "Budgeted category, such as advertisement, food, or parking"
+      ],
+      [
+        "spent",
+        "Total amount spent in the budgeted category"
+      ],
+      [
+        "remaining",
+        "Remaining funds after expenditures in the category"
+      ],
+      [
+        "amount",
+        "Total amount allocated for the budgeted category and event"
+      ],
+      [
+        "event_status",
+        "Status of the event related to the budget entry"
+      ],
+      [
+        "link_to_event",
+        "Reference to the related event for the budget entry"
+      ]
+    ],
+    "expense": [
+      [
+        "expense_id",
+        "Unique identification for each expense entry"
+      ],
+      [
+        "expense_description",
+        "Description of the purpose for the expense"
+      ],
+      [
+        "expense_date",
+        "Date the expense was incurred"
+      ],
+      [
+        "cost",
+        "Dollar amount of the expense"
+      ],
+      [
+        "approved",
+        "Indicates whether the expense was approved"
+      ],
+      [
+        "link_to_member",
+        "Reference to the member who incurred the expense"
+      ],
+      [
+        "link_to_budget",
+        "Reference to the related budget entry"
+      ]
+    ],
+    "income": [
+      [
+        "income_id",
+        "Unique identification for each income record"
+      ],
+      [
+        "date_received",
+        "Date the funds were received"
+      ],
+      [
+        "amount",
+        "Amount of funds received"
+      ],
+      [
+        "source",
+        "Source of the funds, such as dues or university allocation"
+      ],
+      [
+        "notes",
+        "Additional notes or details about the income"
+      ],
+      [
+        "link_to_member",
+        "Reference to the member associated with the income"
+      ]
+    ],
+    "member": [
+      [
+        "member_id",
+        "Unique identification for each member"
+      ],
+      [
+        "first_name",
+        "Member's first name"
+      ],
+      [
+        "last_name",
+        "Member's last name"
+      ],
+      [
+        "email",
+        "Member's email address"
+      ],
+      [
+        "position",
+        "Role or position held by the member in the club"
+      ],
+      [
+        "t_shirt_size",
+        "Preferred T-shirt size for the member"
+      ],
+      [
+        "phone",
+        "Primary contact phone number for the member"
+      ],
+      [
+        "zip",
+        "Hometown ZIP code of the member"
+      ],
+      [
+        "link_to_major",
+        "Reference to the member's academic major"
+      ]
+    ]
+  },
+  {
+    "db_id": "superhero",
+    "alignment": [
+      [
+        "id",
+        "Unique identifier for each alignment type"
+      ],
+      [
+        "alignment",
+        "Moral or ethical alignment classification"
+      ]
+    ],
+    "attribute": [
+      [
+        "id",
+        "Unique identifier for each attribute"
+      ],
+      [
+        "attribute_name",
+        "Name of the attribute measured (e.g., strength, intelligence)"
+      ]
+    ],
+    "colour": [
+      [
+        "id",
+        "Unique identifier for each color entry"
+      ],
+      [
+        "colour",
+        "Color value used for superhero features such as skin, eyes, or hair"
+      ]
+    ],
+    "gender": [
+      [
+        "id",
+        "Unique identifier for each gender entry"
+      ],
+      [
+        "gender",
+        "Gender classification"
+      ]
+    ],
+    "publisher": [
+      [
+        "id",
+        "Unique identifier for each publisher"
+      ],
+      [
+        "publisher_name",
+        "Name of the publishing company"
+      ]
+    ],
+    "race": [
+      [
+        "id",
+        "Unique identifier for each race entry"
+      ],
+      [
+        "race",
+        "Race or species classification"
+      ]
+    ],
+    "superhero": [
+      [
+        "id",
+        "Unique identifier for each superhero"
+      ],
+      [
+        "superhero_name",
+        "Superhero's alias or commonly known name"
+      ],
+      [
+        "full_name",
+        "Superhero's full legal or given name"
+      ],
+      [
+        "gender_id",
+        "Reference to the gender classification"
+      ],
+      [
+        "eye_colour_id",
+        "Reference to the eye color entry"
+      ],
+      [
+        "hair_colour_id",
+        "Reference to the hair color entry"
+      ],
+      [
+        "skin_colour_id",
+        "Reference to the skin color entry"
+      ],
+      [
+        "race_id",
+        "Reference to the race classification"
+      ],
+      [
+        "publisher_id",
+        "Reference to the publisher entry"
+      ],
+      [
+        "alignment_id",
+        "Reference to the alignment classification"
+      ],
+      [
+        "height_cm",
+        "Superhero's height in centimeters"
+      ],
+      [
+        "weight_kg",
+        "Superhero's weight in kilograms"
+      ]
+    ],
+    "hero_attribute": [
+      [
+        "hero_id",
+        "Reference to the associated superhero"
+      ],
+      [
+        "attribute_id",
+        "Reference to the associated attribute"
+      ],
+      [
+        "attribute_value",
+        "Value assigned to the attribute for the superhero"
+      ]
+    ],
+    "superpower": [
+      [
+        "id",
+        "Unique identifier for each superpower"
+      ],
+      [
+        "power_name",
+        "Name of the superpower"
+      ]
+    ],
+    "hero_power": [
+      [
+        "hero_id",
+        "Reference to the associated superhero"
+      ],
+      [
+        "power_id",
+        "Reference to the associated superpower"
+      ]
+    ]
+  },
+  {
+    "db_id": "codebase_community",
+    "badges": [
+      [
+        "Id",
+        "Unique identifier for each badge entry"
+      ],
+      [
+        "UserId",
+        "Identifier of the user who received the badge"
+      ],
+      [
+        "Name",
+        "Name of the badge awarded"
+      ],
+      [
+        "Date",
+        "Date when the badge was awarded"
+      ]
+    ],
+    "comments": [
+      [
+        "Id",
+        "Unique identifier for each comment"
+      ],
+      [
+        "PostId",
+        "Identifier of the post the comment is associated with"
+      ],
+      [
+        "Score",
+        "Score or rating assigned to the comment"
+      ],
+      [
+        "Text",
+        "Content of the comment"
+      ],
+      [
+        "CreationDate",
+        "Date and time the comment was created"
+      ],
+      [
+        "UserId",
+        "Identifier of the user who posted the comment"
+      ],
+      [
+        "UserDisplayName",
+        "Display name of the user who posted the comment"
+      ]
+    ],
+    "postHistory": [
+      [
+        "Id",
+        "Unique identifier for each post history entry"
+      ],
+      [
+        "PostHistoryTypeId",
+        "Type identifier indicating the kind of post history event"
+      ],
+      [
+        "PostId",
+        "Identifier of the post related to this history entry"
+      ],
+      [
+        "RevisionGUID",
+        "Globally unique identifier for the revision"
+      ],
+      [
+        "CreationDate",
+        "Date and time the history entry was created"
+      ],
+      [
+        "UserId",
+        "Identifier of the user who made the change"
+      ],
+      [
+        "Text",
+        "Content associated with the post history entry"
+      ],
+      [
+        "Comment",
+        "Comment or note about the post history entry"
+      ],
+      [
+        "UserDisplayName",
+        "Display name of the user who made the change"
+      ]
+    ],
+    "postLinks": [
+      [
+        "Id",
+        "Unique identifier for each post link"
+      ],
+      [
+        "CreationDate",
+        "Date and time the post link was created"
+      ],
+      [
+        "PostId",
+        "Identifier of the source post in the link"
+      ],
+      [
+        "RelatedPostId",
+        "Identifier of the related post in the link"
+      ],
+      [
+        "LinkTypeId",
+        "Type identifier specifying the kind of link between posts"
+      ]
+    ],
+    "posts": [
+      [
+        "Id",
+        "Unique identifier for each post"
+      ],
+      [
+        "PostTypeId",
+        "Type identifier indicating whether the post is a question, answer, etc."
+      ],
+      [
+        "AcceptedAnswerId",
+        "Identifier of the accepted answer for the post, if any"
+      ],
+      [
+        "CreaionDate",
+        "Date and time the post was created"
+      ],
+      [
+        "Score",
+        "Score assigned to the post"
+      ],
+      [
+        "ViewCount",
+        "Number of times the post has been viewed"
+      ],
+      [
+        "Body",
+        "Main content or body of the post"
+      ],
+      [
+        "OwnerUserId",
+        "Identifier of the user who owns the post"
+      ],
+      [
+        "LasActivityDate",
+        "Date and time of the last activity on the post"
+      ],
+      [
+        "Title",
+        "Title of the post"
+      ],
+      [
+        "Tags",
+        "Tags associated with the post"
+      ],
+      [
+        "AnswerCount",
+        "Total number of answers the post has received"
+      ],
+      [
+        "CommentCount",
+        "Total number of comments on the post"
+      ],
+      [
+        "FavoriteCount",
+        "Total number of times the post has been marked as favorite"
+      ],
+      [
+        "LastEditorUserId",
+        "Identifier of the last user who edited the post"
+      ],
+      [
+        "LastEditDate",
+        "Date and time of the last edit"
+      ],
+      [
+        "CommunityOwnedDate",
+        "Date when the post became community owned"
+      ],
+      [
+        "ParentId",
+        "Identifier of the parent post, if applicable"
+      ],
+      [
+        "ClosedDate",
+        "Date when the post was closed, if applicable"
+      ],
+      [
+        "OwnerDisplayName",
+        "Display name of the post owner"
+      ],
+      [
+        "LastEditorDisplayName",
+        "Display name of the last editor"
+      ]
+    ],
+    "tags": [
+      [
+        "Id",
+        "Unique identifier for each tag"
+      ],
+      [
+        "TagName",
+        "Name of the tag"
+      ],
+      [
+        "Count",
+        "Number of posts that use this tag"
+      ],
+      [
+        "ExcerptPostId",
+        "Identifier of the post containing the tag excerpt"
+      ],
+      [
+        "WikiPostId",
+        "Identifier of the post containing the tag wiki"
+      ]
+    ],
+    "users": [
+      [
+        "Id",
+        "Unique identifier for each user"
+      ],
+      [
+        "Reputation",
+        "Reputation score of the user"
+      ],
+      [
+        "CreationDate",
+        "Date and time the user account was created"
+      ],
+      [
+        "DisplayName",
+        "Display name chosen by the user"
+      ],
+      [
+        "LastAccessDate",
+        "Date and time the user last accessed their account"
+      ],
+      [
+        "WebsiteUrl",
+        "Website URL provided by the user"
+      ],
+      [
+        "Location",
+        "Location specified by the user"
+      ],
+      [
+        "AboutMe",
+        "User's self-introduction or biography"
+      ],
+      [
+        "Views",
+        "Number of times the user's profile has been viewed"
+      ],
+      [
+        "UpVotes",
+        "Total number of upvotes received by the user"
+      ],
+      [
+        "DownVotes",
+        "Total number of downvotes received by the user"
+      ],
+      [
+        "AccountId",
+        "Unique account identifier, possibly across multiple sites"
+      ],
+      [
+        "Age",
+        "Age of the user"
+      ],
+      [
+        "ProfileImageUrl",
+        "URL of the user's profile image"
+      ]
+    ],
+    "votes": [
+      [
+        "Id",
+        "Unique identifier for each vote"
+      ],
+      [
+        "PostId",
+        "Identifier of the post that received the vote"
+      ],
+      [
+        "VoteTypeId",
+        "Type identifier specifying the kind of vote"
+      ],
+      [
+        "CreationDate",
+        "Date and time the vote was cast"
+      ],
+      [
+        "UserId",
+        "Identifier of the user who cast the vote"
+      ],
+      [
+        "BountyAmount",
+        "Amount of bounty awarded with the vote, if applicable"
+      ]
+    ]
+  }
+]

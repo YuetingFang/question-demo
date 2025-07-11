@@ -1,0 +1,744 @@
+[
+  {
+    "db_id": "restaurant",
+    "db_overview": [],
+    "table_names_original": [
+      "geographic",
+      "generalinfo",
+      "location"
+    ],
+    "table_names": [
+      "geographic",
+      "generalinfo",
+      "location"
+    ],
+    "column_names_original": [
+      [
+        -1,
+        "*"
+      ],
+      [
+        0,
+        "city"
+      ],
+      [
+        0,
+        "county"
+      ],
+      [
+        0,
+        "region"
+      ],
+      [
+        1,
+        "id_restaurant"
+      ],
+      [
+        1,
+        "label"
+      ],
+      [
+        1,
+        "food_type"
+      ],
+      [
+        1,
+        "city"
+      ],
+      [
+        1,
+        "review"
+      ],
+      [
+        2,
+        "id_restaurant"
+      ],
+      [
+        2,
+        "street_num"
+      ],
+      [
+        2,
+        "street_name"
+      ],
+      [
+        2,
+        "city"
+      ]
+    ],
+    "column_names": [
+      [
+        -1,
+        "*"
+      ],
+      [
+        0,
+        "city"
+      ],
+      [
+        0,
+        "country"
+      ],
+      [
+        0,
+        "region"
+      ],
+      [
+        1,
+        "id restaurant"
+      ],
+      [
+        1,
+        "label"
+      ],
+      [
+        1,
+        "food type"
+      ],
+      [
+        1,
+        "city"
+      ],
+      [
+        1,
+        "review"
+      ],
+      [
+        2,
+        "id restaurant"
+      ],
+      [
+        2,
+        "street number"
+      ],
+      [
+        2,
+        "street name"
+      ],
+      [
+        2,
+        "city"
+      ]
+    ],
+    "column_descriptions_original": [
+      [
+        -1,
+        "*"
+      ],
+      [
+        0,
+        "the city"
+      ],
+      [
+        0,
+        "the country the city belongs to"
+      ],
+      [
+        0,
+        "corresponding regions"
+      ],
+      [
+        1,
+        "the unique id for the restaurant"
+      ],
+      [
+        1,
+        "the label of the restaurant"
+      ],
+      [
+        1,
+        "the food type"
+      ],
+      [
+        1,
+        "the city where the restaurant is located in"
+      ],
+      [
+        1,
+        "the review of the restaurant"
+      ],
+      [
+        2,
+        "the unique id for the restaurant"
+      ],
+      [
+        2,
+        "the street number of the restaurant"
+      ],
+      [
+        2,
+        "the street name of the restaurant"
+      ],
+      [
+        2,
+        "the city where the restaurant is located in"
+      ]
+    ],
+    "column_descriptions": [],
+    "value_descriptions_original": [
+      [
+        -1,
+        "*"
+      ],
+      [
+        0,
+        null
+      ],
+      [
+        0,
+        null
+      ],
+      [
+        0,
+        null
+      ],
+      [
+        1,
+        null
+      ],
+      [
+        1,
+        null
+      ],
+      [
+        1,
+        null
+      ],
+      [
+        1,
+        null
+      ],
+      [
+        1,
+        "commonsense evidence:\nthe review rating is from 0.0 to 5.0\nThe high review rating is positively correlated with the overall level of the restaurant. The restaurant with higher review rating is usually more popular among diners. "
+      ],
+      [
+        2,
+        null
+      ],
+      [
+        2,
+        null
+      ],
+      [
+        2,
+        null
+      ],
+      [
+        2,
+        null
+      ]
+    ],
+    "column_types": [
+      "text",
+      "text",
+      "text",
+      "text",
+      "integer",
+      "text",
+      "text",
+      "text",
+      "real",
+      "integer",
+      "integer",
+      "text",
+      "text"
+    ],
+    "primary_keys": [
+      1,
+      4,
+      9
+    ],
+    "foreign_keys": [
+      [
+        7,
+        1
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        12,
+        1
+      ]
+    ]
+  },
+  {
+    "db_id": "movielens",
+    "db_overview": [],
+    "table_names_original": [
+      "users",
+      "directors",
+      "actors",
+      "movies",
+      "movies2actors",
+      "movies2directors",
+      "u2base"
+    ],
+    "table_names": [
+      "users",
+      "directors",
+      "actors",
+      "movies",
+      "movies2actors",
+      "movies2directors",
+      "u2base"
+    ],
+    "column_names_original": [
+      [
+        -1,
+        "*"
+      ],
+      [
+        0,
+        "userid"
+      ],
+      [
+        0,
+        "age"
+      ],
+      [
+        0,
+        "u_gender"
+      ],
+      [
+        0,
+        "occupation"
+      ],
+      [
+        1,
+        "directorid"
+      ],
+      [
+        1,
+        "d_quality"
+      ],
+      [
+        1,
+        "avg_revenue"
+      ],
+      [
+        2,
+        "actorid"
+      ],
+      [
+        2,
+        "a_gender"
+      ],
+      [
+        2,
+        "a_quality"
+      ],
+      [
+        3,
+        "movieid"
+      ],
+      [
+        3,
+        "year"
+      ],
+      [
+        3,
+        "isEnglish"
+      ],
+      [
+        3,
+        "country"
+      ],
+      [
+        3,
+        "runningtime"
+      ],
+      [
+        4,
+        "movieid"
+      ],
+      [
+        4,
+        "actorid"
+      ],
+      [
+        4,
+        "cast_num"
+      ],
+      [
+        5,
+        "movieid"
+      ],
+      [
+        5,
+        "directorid"
+      ],
+      [
+        5,
+        "genre"
+      ],
+      [
+        6,
+        "userid"
+      ],
+      [
+        6,
+        "movieid"
+      ],
+      [
+        6,
+        "rating"
+      ]
+    ],
+    "column_names": [
+      [
+        -1,
+        "*"
+      ],
+      [
+        0,
+        "user id"
+      ],
+      [
+        0,
+        "age"
+      ],
+      [
+        0,
+        "user gender"
+      ],
+      [
+        0,
+        "occupation"
+      ],
+      [
+        1,
+        "director id"
+      ],
+      [
+        1,
+        "director quality"
+      ],
+      [
+        1,
+        "average revenue"
+      ],
+      [
+        2,
+        "actor id"
+      ],
+      [
+        2,
+        "actor gender"
+      ],
+      [
+        2,
+        "actor quality"
+      ],
+      [
+        3,
+        "movie id"
+      ],
+      [
+        3,
+        "year"
+      ],
+      [
+        3,
+        "is English"
+      ],
+      [
+        3,
+        "country"
+      ],
+      [
+        3,
+        "runningtime"
+      ],
+      [
+        4,
+        "movie id"
+      ],
+      [
+        4,
+        "actor id"
+      ],
+      [
+        4,
+        "cast number"
+      ],
+      [
+        5,
+        "movie id"
+      ],
+      [
+        5,
+        "director id"
+      ],
+      [
+        5,
+        "genre"
+      ],
+      [
+        6,
+        "user id"
+      ],
+      [
+        6,
+        "movie id"
+      ],
+      [
+        6,
+        "rating"
+      ]
+    ],
+    "column_descriptions_original": [
+      [
+        -1,
+        "*"
+      ],
+      [
+        0,
+        "unique identifier number of users"
+      ],
+      [
+        0,
+        "age"
+      ],
+      [
+        0,
+        "user gender"
+      ],
+      [
+        0,
+        null
+      ],
+      [
+        1,
+        "unique identification number of actors directors"
+      ],
+      [
+        1,
+        null
+      ],
+      [
+        1,
+        "average revenue"
+      ],
+      [
+        2,
+        "unique identificator number of actors"
+      ],
+      [
+        2,
+        "actor gender"
+      ],
+      [
+        2,
+        "actor quality"
+      ],
+      [
+        3,
+        "unique identifier number of movies"
+      ],
+      [
+        3,
+        "year"
+      ],
+      [
+        3,
+        "is English"
+      ],
+      [
+        3,
+        "country"
+      ],
+      [
+        3,
+        null
+      ],
+      [
+        4,
+        "identifier number of movies"
+      ],
+      [
+        4,
+        "identifier number of actors"
+      ],
+      [
+        4,
+        "cast number"
+      ],
+      [
+        5,
+        "identifier number of movies"
+      ],
+      [
+        5,
+        "identifier number of directors"
+      ],
+      [
+        5,
+        "genre of movies"
+      ],
+      [
+        6,
+        "identifier number of users"
+      ],
+      [
+        6,
+        "identifier number of movie"
+      ],
+      [
+        6,
+        "ratings of movies"
+      ]
+    ],
+    "column_descriptions": [],
+    "value_descriptions_original": [
+      [
+        -1,
+        "*"
+      ],
+      [
+        0,
+        null
+      ],
+      [
+        0,
+        "1: 1-18 years old; \n18: 18-25 years old; \n25: 25-35 years old; \n35: 35-45 years old; \n45: 45-50 years old; \n50: 50-56 years old; \n56: over 56 years old"
+      ],
+      [
+        0,
+        "M / F: Male / Female"
+      ],
+      [
+        0,
+        null
+      ],
+      [
+        1,
+        null
+      ],
+      [
+        1,
+        null
+      ],
+      [
+        1,
+        "higher value is the higher, lower is the lower"
+      ],
+      [
+        2,
+        null
+      ],
+      [
+        2,
+        "M: male;\r\nF: female"
+      ],
+      [
+        2,
+        "higher is better, lower is the worse"
+      ],
+      [
+        3,
+        null
+      ],
+      [
+        3,
+        "4: newest;\n\n1: oldest\n\nhigher value means newer published date"
+      ],
+      [
+        3,
+        null
+      ],
+      [
+        3,
+        null
+      ],
+      [
+        3,
+        null
+      ],
+      [
+        4,
+        null
+      ],
+      [
+        4,
+        null
+      ],
+      [
+        4,
+        null
+      ],
+      [
+        5,
+        null
+      ],
+      [
+        5,
+        null
+      ],
+      [
+        5,
+        null
+      ],
+      [
+        6,
+        null
+      ],
+      [
+        6,
+        null
+      ],
+      [
+        6,
+        "higher value refers to higher satisfactory, each value is the rating of movies left by users."
+      ]
+    ],
+    "column_types": [
+      "text",
+      "integer",
+      "text",
+      "text",
+      "text",
+      "integer",
+      "integer",
+      "integer",
+      "integer",
+      "text",
+      "integer",
+      "integer",
+      "integer",
+      "text",
+      "text",
+      "integer",
+      "integer",
+      "integer",
+      "integer",
+      "integer",
+      "integer",
+      "text",
+      "integer",
+      "integer",
+      "text"
+    ],
+    "primary_keys": [
+      1,
+      5,
+      8,
+      11,
+      [
+        16,
+        17
+      ],
+      [
+        19,
+        20
+      ],
+      [
+        22,
+        23
+      ]
+    ],
+    "foreign_keys": []
+  }
+]

@@ -1,0 +1,48 @@
+n_gram_size= 3
+'total unique n-grams': 244, 
+'entropy': 3.580853813349159, 
+'jaccard_similarity': 0.18273652617044908, 
+'top n-grams':      ngram               frequency
+198       SELECT FROM INNER JOIN        866
+77         FROM INNER JOIN WHERE        819
+124         INNER JOIN WHERE AND        452
+202            SELECT FROM WHERE        339
+74    FROM INNER JOIN INNER JOIN        240
+193         SELECT DISTINCT FROM        236
+121  INNER JOIN INNER JOIN WHERE        217
+58      DISTINCT FROM INNER JOIN        202
+208                WHERE AND AND        113
+85                FROM WHERE AND        109
+
+n_gram_size= 4 
+'total unique n-grams': 395, 
+'entropy': 4.249871636533294, 
+'jaccard_similarity': 0.10574760498770785, 
+'top n-grams':      ngram                    frequency
+308       SELECT FROM INNER JOIN WHERE        613
+107          FROM INNER JOIN WHERE AND        354
+293    SELECT DISTINCT FROM INNER JOIN        198
+104   FROM INNER JOIN INNER JOIN WHERE        190
+305  SELECT FROM INNER JOIN INNER JOIN        189
+77      DISTINCT FROM INNER JOIN WHERE        163
+192    INNER JOIN INNER JOIN WHERE AND         98
+316              SELECT FROM WHERE AND         94
+204           INNER JOIN WHERE AND AND         92
+230    INNER JOIN WHERE ORDER BY LIMIT         60
+
+
+n_gram_size= 5
+'total unique n-grams': 515, 
+'entropy': 4.89856209679988, 
+'jaccard_similarity': 0.11687511237894542, 
+'top n-grams':              ngram                   frequency
+390           SELECT FROM INNER JOIN WHERE AND        279
+364      SELECT DISTINCT FROM INNER JOIN WHERE        161
+387    SELECT FROM INNER JOIN INNER JOIN WHERE        146
+112       FROM INNER JOIN INNER JOIN WHERE AND         86
+77          DISTINCT FROM INNER JOIN WHERE AND         68
+123              FROM INNER JOIN WHERE AND AND         67
+147       FROM INNER JOIN WHERE ORDER BY LIMIT         50
+399      SELECT FROM INNER JOIN WHERE ORDER BY         49
+388      SELECT FROM INNER JOIN ORDER BY LIMIT         41
+74   DISTINCT FROM INNER JOIN INNER JOIN WHERE         33

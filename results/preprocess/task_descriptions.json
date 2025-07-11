@@ -1,0 +1,102 @@
+[
+  {
+    "question_id": 1473,
+    "db_id": "debit_card_specializing",
+    "question": "What was the average monthly consumption of customers in SME for the year 2013?",
+    "evidence": "Average Monthly consumption = AVG(Consumption) / 12; Year 2013 can be presented as Between 201301 And 201312; The first 4 strings of the Date values in the yearmonth table can represent year.",
+    "SQL": "SELECT AVG(T2.Consumption) / 12 FROM customers AS T1 INNER JOIN yearmonth AS T2 ON T1.CustomerID = T2.CustomerID WHERE SUBSTR(T2.Date, 1, 4) = '2013' AND T1.Segment = 'SME'",
+    "difficulty": "moderate",
+    "reasoning": "1. The query selects the average value of the 'Consumption' column from the 'yearmonth' table, divided by 12, which calculates the average monthly consumption. 2. It joins the 'customers' table and the 'yearmonth' table using the customer ID to match each customer's consumption records. 3. The filter SUBSTR(T2.Date, 1, 4) = '2013' ensures that only records from the year 2013 are included, by checking that the year part of the date is 2013. 4. The filter T1.Segment = 'SME' restricts the results to customers who belong to the 'SME' segment.",
+    "task_description": "Your goal is to calculate the average monthly consumption for customers. Please consider the following:\n(1) Only include customers who belong to the 'SME' segment.\n(2) Only consider consumption data from the year 2013.\n(3) The average should be calculated based on the total consumption for the year, divided by 12 to represent a monthly average."
+  },
+  {
+    "question_id": 1474,
+    "db_id": "debit_card_specializing",
+    "question": "Which customers, paying in CZK, consumed the most gas in 2011?",
+    "evidence": "Year 2011 can be presented as Between 201101 And 201112, which means between January and December in 2011",
+    "SQL": "SELECT T1.CustomerID FROM customers AS T1 INNER JOIN yearmonth AS T2 ON T1.CustomerID = T2.CustomerID WHERE T1.Currency = 'CZK' AND T2.Date BETWEEN 201101 AND 201112 GROUP BY T1.CustomerID ORDER BY SUM(T2.Consumption) DESC LIMIT 1",
+    "difficulty": "moderate",
+    "reasoning": "1. SELECT T1.CustomerID: The query aims to find customer IDs.\n2. FROM customers AS T1 INNER JOIN yearmonth AS T2 ON T1.CustomerID = T2.CustomerID: It combines customer information with their monthly consumption records.\n3. WHERE T1.Currency = 'CZK': Only customers who pay using the CZK currency are considered.\n4. AND T2.Date BETWEEN 201101 AND 201112: Only consumption records from January to December 2011 are included.\n5. GROUP BY T1.CustomerID: The results are grouped by each customer.\n6. ORDER BY SUM(T2.Consumption) DESC: Customers are ranked by their total consumption in 2011, from highest to lowest.\n7. LIMIT 1: Only the customer with the highest total consumption is selected.",
+    "task_description": "Your goal is to identify the customer who consumed the most gas. Please consider the following:\n(1) Only include customers who pay using the CZK currency.\n(2) Only consider gas consumption during the year 2011 (from January to December).\n(3) Select the customer with the highest total gas consumption in this period."
+  },
+  {
+    "question_id": 1475,
+    "db_id": "debit_card_specializing",
+    "question": "How many customers in KAM had a consumption of less than 30,000 for the year 2012?",
+    "evidence": "Year 2012 can be presented as Between 201201 And 201212, which means between January and December in 2012",
+    "SQL": "SELECT COUNT(*) FROM ( SELECT T2.CustomerID FROM customers AS T1 INNER JOIN yearmonth AS T2 ON T1.CustomerID = T2.CustomerID WHERE T1.Segment = 'KAM' AND SUBSTRING(T2.Date, 1, 4) = '2012' GROUP BY T2.CustomerID HAVING SUM(T2.Consumption) < 30000 ) AS t1",
+    "difficulty": "moderate",
+    "reasoning": "1. The query is selecting the count of customers from a subquery result. \n2. The subquery retrieves the unique customer IDs by joining the customers table with the yearmonth table, matching on CustomerID. \n3. It filters for customers whose segment is 'KAM'. \n4. It further filters for records where the date is in the year 2012 (by checking that the first four characters of the date are '2012'). \n5. For each customer, it groups the records by CustomerID and calculates the total consumption for the year 2012. \n6. Only customers whose total consumption for 2012 is less than 30,000 are included. \n7. The outer query counts how many such customers exist.",
+    "task_description": "Your goal is to count the number of customers. Please consider the following:\n(1) Only include customers who belong to the 'KAM' segment.\n(2) Only consider consumption data from the year 2012.\n(3) For each customer, add up their total consumption for 2012.\n(4) Only include customers whose total consumption for 2012 is less than 30,000."
+  },
+  {
+    "question_id": 1476,
+    "db_id": "debit_card_specializing",
+    "question": "What was the difference in gas consumption between CZK-paying customers and EUR-paying customers in 2012?",
+    "evidence": "Year 2012 can be presented as Between 201201 And 201212; The first 4 strings of the Date values in the yearmonth table can represent year; Difference in Consumption = CZK customers consumption in 2012 - EUR customers consumption in 2012",
+    "SQL": "SELECT SUM(IIF(T1.Currency = 'CZK', T2.Consumption, 0)) - SUM(IIF(T1.Currency = 'EUR', T2.Consumption, 0)) FROM customers AS T1 INNER JOIN yearmonth AS T2 ON T1.CustomerID = T2.CustomerID WHERE SUBSTR(T2.Date, 1, 4) = '2012'",
+    "difficulty": "challenging",
+    "reasoning": "1. The query calculates the total gas consumption for two groups of customers: those who pay in CZK and those who pay in EUR. 2. It does this by joining the customers table (which contains the payment currency for each customer) with the yearmonth table (which contains gas consumption records for each customer by month). 3. For each customer, if their payment currency is CZK, their consumption is added to the CZK total; if their currency is EUR, their consumption is added to the EUR total. 4. The query only considers records where the year in the date is 2012 (by checking that the first four characters of the date are '2012'). 5. Finally, it subtracts the total consumption of EUR-paying customers from the total consumption of CZK-paying customers to find the difference.",
+    "task_description": "Your goal is to determine the difference in total gas consumption between customers who pay in CZK and those who pay in EUR. Please consider the following:\n(1) Only include customers whose payment currency is either CZK or EUR.\n(2) Only consider gas consumption data from the year 2012.\n(3) For each group (CZK and EUR), sum the total gas consumption for that year.\n(4) Subtract the total consumption of EUR-paying customers from that of CZK-paying customers to find the difference."
+  },
+  {
+    "question_id": 1479,
+    "db_id": "debit_card_specializing",
+    "question": "Which year recorded the most consumption of gas paid in CZK?",
+    "evidence": "The first 4 strings of the Date values in the yearmonth table can represent year.",
+    "SQL": "SELECT SUBSTR(T2.Date, 1, 4) FROM customers AS T1 INNER JOIN yearmonth AS T2 ON T1.CustomerID = T2.CustomerID WHERE T1.Currency = 'CZK' GROUP BY SUBSTR(T2.Date, 1, 4) ORDER BY SUM(T2.Consumption) DESC LIMIT 1",
+    "difficulty": "moderate",
+    "reasoning": "1. SELECT SUBSTR(T2.Date, 1, 4) --> The query extracts the year from the date associated with each consumption record.\n2. FROM customers AS T1 INNER JOIN yearmonth AS T2 ON T1.CustomerID = T2.CustomerID --> The query links customer information with their monthly consumption records.\n3. WHERE T1.Currency = 'CZK' --> Only customers whose transactions are in Czech Koruna (CZK) are considered.\n4. GROUP BY SUBSTR(T2.Date, 1, 4) --> The data is grouped by year.\n5. ORDER BY SUM(T2.Consumption) DESC --> The years are ordered by the total consumption in descending order.\n6. LIMIT 1 --> Only the year with the highest total consumption is returned.",
+    "task_description": "Your goal is to identify the year. Please consider the following:\n(1) Only include consumption records from customers whose transactions are in Czech Koruna (CZK).\n(2) Group the data by year, based on the date of each consumption record.\n(3) For each year, calculate the total consumption amount.\n(4) Select the year with the highest total consumption."
+  },
+  {
+    "question_id": 1486,
+    "db_id": "debit_card_specializing",
+    "question": "Is it true that more SMEs pay in Czech koruna than in euros? If so, how many more?",
+    "evidence": "Amount of more SMEs = Total of SMEs pay using Currency CZK - Total of SMEs pay using Currency EUR",
+    "SQL": "SELECT SUM(Currency = 'CZK') - SUM(Currency = 'EUR') FROM customers WHERE Segment = 'SME'",
+    "difficulty": "simple",
+    "reasoning": "1. The query selects the difference between the number of SME customers who pay in Czech koruna and those who pay in euros.\n2. It uses a filter to only include customers whose segment is 'SME'.\n3. It counts how many SME customers use Czech koruna as their currency and how many use euros, then subtracts the latter from the former to find the difference.",
+    "task_description": "Your goal is to determine how many more SME customers pay in Czech koruna compared to euros. Please consider the following:\n(1) Only include customers whose segment is classified as SME.\n(2) Count the number of SME customers who use Czech koruna as their currency.\n(3) Count the number of SME customers who use euros as their currency.\n(4) Calculate the difference by subtracting the number of SME customers using euros from those using Czech koruna."
+  },
+  {
+    "question_id": 1490,
+    "db_id": "debit_card_specializing",
+    "question": "How many percent of LAM customer consumed more than 46.73?",
+    "evidence": "Percentage of LAM customer consumed more than 46.73 = (Total no. of LAM customers who consumed more than 46.73 / Total no. of LAM customers) * 100.",
+    "SQL": "SELECT CAST(SUM(IIF(T2.Consumption > 46.73, 1, 0)) AS FLOAT) * 100 / COUNT(T1.CustomerID) FROM customers AS T1 INNER JOIN yearmonth AS T2 ON T1.CustomerID = T2.CustomerID WHERE T1.Segment = 'LAM'",
+    "difficulty": "moderate",
+    "reasoning": "1. SELECT CAST(SUM(IIF(T2.Consumption > 46.73, 1, 0)) AS FLOAT) * 100 / COUNT(T1.CustomerID) --> The query calculates the percentage of customers in a certain group who have a consumption value above a specific threshold. It does this by counting how many customers have a consumption greater than 46.73, dividing by the total number of customers in the group, and multiplying by 100 to get a percentage.\n2. FROM customers AS T1 INNER JOIN yearmonth AS T2 ON T1.CustomerID = T2.CustomerID --> The query links customer information with their consumption records.\n3. WHERE T1.Segment = 'LAM' --> Only customers who belong to the 'LAM' segment are considered.\n4. The main goal is to calculate a percentage, not to list individual customers or consumption values.",
+    "task_description": "Your goal is to calculate the percentage of customers. Please consider the following:\n(1) Only include customers who belong to the 'LAM' segment.\n(2) Only consider customers whose consumption is greater than 46.73.\n(3) The percentage should be calculated as the number of 'LAM' customers with consumption above 46.73 divided by the total number of 'LAM' customers, multiplied by 100."
+  },
+  {
+    "question_id": 1509,
+    "db_id": "debit_card_specializing",
+    "question": "Among the transactions made in the gas stations in the Czech Republic, how many of them are taken place after 2012/1/1?",
+    "evidence": "Czech Republic can be represented as the Country value in the gasstations table is 'CZE'",
+    "SQL": "SELECT COUNT(T1.TransactionID) FROM transactions_1k AS T1 INNER JOIN gasstations AS T2 ON T1.GasStationID = T2.GasStationID WHERE T2.Country = 'CZE' AND STRFTIME('%Y', T1.Date) >= '2012'",
+    "difficulty": "moderate",
+    "reasoning": "1. SELECT COUNT(T1.TransactionID) --> The query aims to count the total number of transactions.\n2. FROM transactions_1k AS T1 INNER JOIN gasstations AS T2 ON T1.GasStationID = T2.GasStationID --> Only transactions that are linked to gas stations are considered.\n3. WHERE T2.Country = 'CZE' --> Only transactions at gas stations located in the Czech Republic are included.\n4. AND STRFTIME('%Y', T1.Date) >= '2012' --> Only transactions that occurred in the year 2012 or later are counted.",
+    "task_description": "Your goal is to count the total number of transactions. Please consider the following:\n(1) Only include transactions that took place at gas stations located in the Czech Republic.\n(2) Only include transactions that occurred on or after January 1, 2012."
+  },
+  {
+    "question_id": 1511,
+    "db_id": "debit_card_specializing",
+    "question": "For the customers who paid in the euro, what is their average total price of the transactions?",
+    "evidence": "",
+    "SQL": "SELECT AVG(T1.Price) FROM transactions_1k AS T1 INNER JOIN gasstations AS T2 ON T1.GasStationID = T2.GasStationID INNER JOIN customers AS T3 ON T1.CustomerID = T3.CustomerID WHERE T3.Currency = 'EUR'",
+    "difficulty": "simple",
+    "reasoning": "1. SELECT AVG(T1.Price) --> The main goal is to calculate the average value of the 'Price' for transactions.\n2. FROM transactions_1k AS T1 --> The data is taken from the transactions table.\n3. INNER JOIN gasstations AS T2 ON T1.GasStationID = T2.GasStationID --> The transactions are linked to gas stations, but no conditions are applied from this table in the WHERE clause.\n4. INNER JOIN customers AS T3 ON T1.CustomerID = T3.CustomerID --> The transactions are linked to customers.\n5. WHERE T3.Currency = 'EUR' --> Only include transactions where the customer paid in euros.",
+    "task_description": "Your goal is to calculate the average price of transactions. Please consider the following:\n(1) Only include transactions made by customers whose payment currency is the euro (EUR)."
+  },
+  {
+    "question_id": 1524,
+    "db_id": "debit_card_specializing",
+    "question": "What's the nationality of the customer who spent 548.4 in 2012/8/24?",
+    "evidence": "'2012/8/24' can be represented by '2012-08-24'",
+    "SQL": "SELECT T2.Country FROM transactions_1k AS T1 INNER JOIN gasstations AS T2 ON T1.GasStationID = T2.GasStationID WHERE T1.Date = '2012-08-24' AND T1.Price = 548.4",
+    "difficulty": "simple",
+    "reasoning": "1. SELECT T2.Country --> The query aims to retrieve the country associated with a gas station.\n2. FROM transactions_1k AS T1 INNER JOIN gasstations AS T2 ON T1.GasStationID = T2.GasStationID --> The query links each transaction to the gas station where it occurred, in order to access the country information.\n3. WHERE T1.Date = '2012-08-24' --> The transaction must have occurred on August 24, 2012.\n4. AND T1.Price = 548.4 --> The transaction must have a total price of 548.4.\n\nSince column descriptions are not provided, the reasoning is based on the column and table names. The query is looking for the country of the gas station where a transaction with a specific price occurred on a specific date.",
+    "task_description": "Your goal is to identify the country associated with a gas station involved in a transaction. Please consider the following:\n(1) Only include transactions that occurred on August 24, 2012.\n(2) Only include transactions where the total price was 548.4."
+  }
+]

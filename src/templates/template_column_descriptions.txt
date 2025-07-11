@@ -1,0 +1,74 @@
+### CONTEXT
+You are a professional data scientist tasked with interpreting database schemas. 
+Your goal is to generate clear, concise, and informative descriptions for each column using the database schema and the original column descriptions.
+### OBJECTIVE
+Generate succinct and accurate descriptions that clearly convey the purpose or meaning of each column.
+### GUIDELINES
+1.	Do not include the column name directly in the description.
+2.	Reference the database ID or the table name only if necessary to clarify context.
+3.	Keep each description brief—1 to 3 sentences max.
+4.	Output must be in strict JSON format as specified below.
+### INPUT
+- Data Schema: the database ID, tables names and column names.
+- Original Column Descriptions: content annotated by the database administrators.
+### OUTPUT
+Your output should be in a JSON form with the following structure:
+{{
+  "db_id": "database_id",
+  "column_descriptions": [
+    [-1, "*"],
+    [table_id, "column_description"],
+    ...
+    ]
+}}
+- db_id: The name of the database.
+- column_descriptions: A list of entries where each contains: the table ID (as an integer) and a revised description for one of the table's columns.
+### EXAMPLES
+==========
+Example 1
+*************************
+【Data Schema】
+{{
+	"db_id": "movielens",
+	"table_names": ["users", "directors", "actors", "movies", "movies2actors", "movies2directors", "u2base"],
+	"column_names": [[-1,"*"],[0,"user id"],[0,"age"],[0,"user gender"],[0,"occupation"],[1,"director id"],[1,"director quality"],[1,"average revenue"],[2,"actor id"],[2,"actor gender"],[2,"actor quality"],[3,"movie id"],[3,"year"],[3,"is English"],[3,"country"],[3,"runningtime"],[4,"movie id"],[4,"actor id"],[4,"cast number"],[5,"movie id"],[5,"director id"],[5,"genre"],[6,"user id"],[6,"movie id"],[6,"rating"]]
+}}
+【Original Column Descriptions】
+{{
+	"column_descriptions_original": [[-1,"*"],[0,"unique identifier number of users"],[0,"age"],[0,"user gender"],[0,null],[1,"unique identification number of actors directors"],[1,null],[1,"average revenue"],[2,"unique identificator number of actors"],[2,"actor gender"],[2,"actor quality"],[3,"unique identifier number of movies"],[3,"year"],[3,"is English"],[3,"country"],[3,null],[4,"identifier number of movies"],[4,"identifier number of actors"],[4,"cast number"],[5,"identifier number of movies"],[5,"identifier number of directors"],[5,"genre of movies"],[6,"identifier number of users"],[6,"identifier number of movie"],[6,"ratings of movies"]]
+}}
+**************************
+【Output】
+{{
+  "db_id": "movielens",
+  "column_descriptions": [[-1,"*"],[0,"Unique identification for each user"],[0,"User's age in years"],[0,"User's gender"],[0,"User's occupation"],[1,"Unique identification for each director"],[1,"Measure of director's overall performance"],[1,"Average revenue of movies directed"],[2,"Unique identification for each actor"],[2,"Actor's gender"],[2,"Measure of actor's overall performance"],[3,"Unique identification for each movie"],[3,"Year the movie was released"],[3,"Indicates whether the movie is in English"],[3,"Country where the movie was produced"],[3,"Total running time of the movie in minutes"],[4,"Identification of the movie the actor appears in"],[4,"Identification of the actor in the movie"],[4,"Order of appearance in the cast list"],[5,"Iidentification of the movie directed"],[5,"Identification of the director"],[5,"Genre of the movie"],[6,"Identification of the user who rated the movie"],[6,"Identification of the rated movie"],[6,"Rating given by the user "]]
+}}
+==========
+Example 2
+**************************
+【Data Schema】
+{{
+	"db_id": "restaurant",
+	"table_names": ["geographic", "generalinfo", "location"],
+    "column_names": [[-1,"*"],[0,"city"],[0,"country"],[0,"region"],[1,"id restaurant"],[1,"label"],[1,"food type"],[1,"city"],[1,"review"],[2,"id restaurant"],[2,"street number"],[2,"street name"],[2,"city"]]
+}}
+【Original Column Descriptions】
+{{
+	"column_descriptions_original": [[-1,"*"],[0,"the city"],[0,"the country the city belongs to"],[0,"corresponding regions"],[1,"the unique id for the restaurant"],[1,"the label of the restaurant"],[1,"the food type"],[1,"the city where the restaurant is located in"],[1,"the review of the restaurant"],[2,"the unique id for the restaurant"],[2,"the street number of the restaurant"],[2,"the street name of the restaurant"],[2,"the city where the restaurant is located in"]]
+}}
+**************************
+【Output】
+{{
+  "db_id": "restaurant",
+  "column_descriptions": [[-1, "*"],[0,"City where the restaurant is located"],[0,"Country where the city is located"],[0,"Region within the country"],[1,"Unique identification for each restaurant"],[1,"Restaurant identifying label"],[1,"Type of cuisine served"],[1,"City where the restaurant is located"],[1,"Customer review or rating"],[2,"Unique identification for each restaurant"],[2,"Street number of the restaurant's address"],[2,"Street name of the restaurant's address"],[2,"City where the restaurant is located"]]
+}}
+===========
+Now use the structure above to interpret the REAL INPUT below. Generate refined descriptions following the same format and standards.
+**************************
+【Data Schema】
+{DATABASE_SCHEMA}
+
+【Original Column Descriptions】
+{ORIGINAL_COLUMN_DESCRIPTIONS}
+**************************
+【Output】

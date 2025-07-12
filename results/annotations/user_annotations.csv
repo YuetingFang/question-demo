@@ -1,0 +1,5 @@
+ID,Input,question_id,db_id,task_description,timestamp
+user_orr9rhe3r_1752056832369,adsa,1473,debit_card_specializing,"Your goal is to calculate the average monthly consumption for customers. Please consider the following:
+(1) Only include customers who belong to the 'SME' segment.
+(2) Only consider consumption data from the year 2013.
+(3) The average should be calculated based on the total consumption for the year, divided by 12 to represent a monthly average.",2025-07-12 17:26:25

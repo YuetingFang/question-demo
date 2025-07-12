@@ -10,7 +10,7 @@ This project is a web application for annotating questions. It uses React for th
 ## Activate the virtual environment
 
 ```bash
-conda activate /fs/fast/u2024000982/envs/nl7sql
+conda activate envs/nl7sql
 ```
 
 ## cd to the project directory

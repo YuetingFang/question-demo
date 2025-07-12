@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../config/apiConfig';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Alert, Spinner } from 'react-bootstrap';
 import DesktopLayout from '../components/DesktopLayout';
@@ -53,7 +54,7 @@ function ExamplesPage() {
         console.log('Fetching task and table data...');
   
         // 1. 加载任务描述数据
-        const taskRes = await fetch('/api/task-descriptions');
+        const taskRes = await fetch(`${API_BASE_URL}/api/task-descriptions`);
         if (!taskRes.ok) throw new Error('Failed to fetch task descriptions');
         const tasks = await taskRes.json();
         console.log('Loaded task descriptions:', tasks.length);
@@ -74,7 +75,7 @@ function ExamplesPage() {
         });
   
         // 2. 加载动态表格数据
-        const tablesRes = await fetch(`/api/dynamic-tables?db_id=${dbId}`);
+        const tablesRes = await fetch(`${API_BASE_URL}/api/dynamic-tables?db_id=${dbId}`);
         if (!tablesRes.ok) throw new Error(`Failed to fetch dynamic tables: ${tablesRes.status}`);
         const dynamicData = await tablesRes.json();
         console.log('Loaded dynamic table data');
@@ -157,7 +158,7 @@ function ExamplesPage() {
         setTableData(tempTableData);
         
         // 尝试从API获取该表格的数据 - 使用当前任务的db_id
-        const response = await fetch(`/api/table-data?tableName=${selectedTable}&db_id=${currentDbId}`);
+        const response = await fetch(`${API_BASE_URL}/api/table-data?tableName=${selectedTable}&db_id=${currentDbId}`);
         
         if (response.ok) {
           const tableInfo = await response.json();
@@ -245,7 +246,7 @@ function ExamplesPage() {
       };
       
       // 发送到API保存到CSV
-      const response = await fetch('/api/save-annotation', {
+      const response = await fetch(`${API_BASE_URL}/api/save-annotation`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

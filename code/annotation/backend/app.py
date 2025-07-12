@@ -8,9 +8,11 @@ import csv
 import uuid
 from datetime import datetime
 from pathlib import Path
+from dotenv import load_dotenv
 
 # 调整路径以适应新的目录结构
 # 现在 backend 目录在 src/annotation/backend 下
+from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent
 load_dotenv(dotenv_path=BASE_DIR / '.env')
 

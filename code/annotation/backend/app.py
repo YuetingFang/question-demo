@@ -391,6 +391,9 @@ def save_annotation():
 @app.route('/api/download-annotations', methods=['GET'])
 def download_annotations():
     token = request.args.get('token')
+    print("Received token:", token)
+    print("Expected token:", DOWNLOAD_TOKEN)
+    
     if token != DOWNLOAD_SECRET:
         return abort(403, description="Unauthorized download access.")
 

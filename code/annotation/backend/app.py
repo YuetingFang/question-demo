@@ -387,18 +387,19 @@ def save_annotation():
         import traceback
         traceback.print_exc()
         return jsonify({'error': str(e)}), 500
-        
+
+DOWNLOAD_TOKEN = os.environ.get("DOWNLOAD_TOKEN", "default_token")
 @app.route('/api/download-annotations', methods=['GET'])
 def download_annotations():
     token = request.args.get('token')
     print("Received token:", token)
     print("Expected token:", DOWNLOAD_TOKEN)
-    
-    if token != DOWNLOAD_SECRET:
+
+    if token != DOWNLOAD_TOKEN:
         return abort(403, description="Unauthorized download access.")
 
     csv_path = ANNOTATIONS_DIR / 'user_annotations.csv'
-    
+
     if not csv_path.exists():
         return jsonify({'error': 'No annotation file found.'}), 404
 

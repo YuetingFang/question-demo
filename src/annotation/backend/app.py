@@ -12,9 +12,10 @@ from pathlib import Path
 # 调整路径以适应新的目录结构
 # 现在 backend 目录在 src/annotation/backend 下
 BASE_DIR = Path(__file__).resolve().parent
-PROJECT_ROOT = BASE_DIR / '..' / '..' / '..'  # 回到项目根目录
+load_dotenv(dotenv_path=BASE_DIR / '.env')
 
-# 重新定义所有路径基于项目根目录
+
+PROJECT_ROOT = BASE_DIR / '..' / '..' / '..'  # 回到项目根目录
 DB_BASE_PATH = PROJECT_ROOT / 'data' / 'dev_databases'
 PREPROCESS_PATH = PROJECT_ROOT / 'results' / 'preprocess' / 'preprocess_dev_tables.json'
 DICT_DESC_PATH = PROJECT_ROOT / 'results' / 'preprocess' / 'dictionary_column_descriptions.json'
@@ -26,7 +27,17 @@ ANNOTATIONS_DIR = PROJECT_ROOT / 'results' / 'annotations'
 # 指向 frontend/build 目录作为静态文件目录
 frontend_build_path = BASE_DIR / '..' / 'frontend' / 'build'
 app = Flask(__name__, static_folder=frontend_build_path, static_url_path='')
-CORS(app)  # Enable CORS for all routes
+
+# 配置允许的跨域来源，支持环境变量 ALLOWED_ORIGINS（逗号分隔）
+origins_env = os.environ.get("ALLOWED_ORIGINS")
+if origins_env:
+    allowed_origins = [origin.strip() for origin in origins_env.split(",") if origin.strip()]
+else:
+    allowed_origins = [
+        "http://localhost:5001"
+    ]
+CORS(app, origins=allowed_origins)
+
 
 
 # 注意：Flask静态文件处理优化

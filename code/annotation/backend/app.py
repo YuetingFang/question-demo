@@ -388,7 +388,7 @@ def save_annotation():
         traceback.print_exc()
         return jsonify({'error': str(e)}), 500
 
-DOWNLOAD_TOKEN = os.environ.get("DOWNLOAD_TOKEN", "default_token")
+DOWNLOAD_TOKEN = os.environ.get("DOWNLOAD_SECRET", "default_token")
 @app.route('/api/download-annotations', methods=['GET'])
 def download_annotations():
     token = request.args.get('token')

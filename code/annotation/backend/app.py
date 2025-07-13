@@ -359,8 +359,13 @@ def save_annotation():
         # Validate required fields
         if not user_id or not inputs or not question_id or not db_id or not task_description:
             return jsonify({'error': 'Missing required fields'}), 400
+        
+        # Create directory for annotations if it doesn't exist
+        # 使用 PROJECT_ROOT 确保路径正确，无论后端代码位置如何
        
         os.makedirs(ANNOTATIONS_DIR, exist_ok=True)
+        
+        # CSV file path
         csv_path = ANNOTATIONS_DIR / 'annotation_results.csv'
         file_exists = os.path.isfile(csv_path)
         
@@ -377,6 +382,12 @@ def save_annotation():
             for input_text in inputs:
                 if input_text.strip():  # Only write non-empty inputs
                     writer.writerow([user_id, input_text, question_id, db_id, task_description, prolific_pid, timestamp])
+        
+        return jsonify({'success': True, 'message': 'Annotation saved successfully'})
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': str(e)}), 500
 
 DOWNLOAD_TOKEN = os.environ.get("DOWNLOAD_SECRET", "default_token")
 @app.route('/api/download-annotations', methods=['GET'])

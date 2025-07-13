@@ -507,7 +507,7 @@ function ExamplesPage() {
         <div className="d-flex justify-content-between align-items-center mb-1">
           <p> Please turn the task description into one or more natural language {currentOrdering} that would retrieve the expected information from the database on the left. 
           <br />
-          Use your own words. No AI. No long texts. 
+          Use your own words. <strong>NO</strong> AI. <strong>NO</strong> long texts. 
           </p>
         </div>
 

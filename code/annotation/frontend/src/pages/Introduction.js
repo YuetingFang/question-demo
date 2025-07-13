@@ -38,7 +38,7 @@ function DesktopIntroduction() {
             <br />
             <p><strong>Note:</strong></p>
             <ul>
-              <li>The study will take approximately <strong>25 minutes</strong> to complete.</li>
+              <li>The study will take approximately <strong>20 minutes</strong> to complete.</li>
               <li>We recommend running the study on the <strong>Google Chrome</strong> browser with a maximized window.</li>
               <li>Pressing the "Refresh" button or "Back" button during the session will always return you to this introduction page.</li>
             </ul>

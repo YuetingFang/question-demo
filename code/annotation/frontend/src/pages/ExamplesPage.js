@@ -244,6 +244,15 @@ function ExamplesPage() {
         db_id: currentDbId,
         task_description: currentTaskData.task_description
       };
+
+      // 检查是否是Prolific URL，提取参数
+      const urlParams = new URLSearchParams(window.location.search);
+      const prolificPid = urlParams.get('PROLIFIC_PID');
+      
+      // 如果存在PROLIFIC_PID参数，则添加到提交数据中
+      if (prolificPid && prolificPid !== '{{%PROLIFIC_PID%}}') {
+        submissionData.prolific_pid = prolificPid;
+      }
       
       // 发送到API保存到CSV
       const response = await fetch(`${API_BASE_URL}/api/save-annotation`, {

@@ -413,12 +413,6 @@ def download_annotations():
     except Exception as e:
         return jsonify({'error': f'Error sending file: {str(e)}'}), 500
 
-@app.route('/api/check-csv')
-def check_csv():
-    csv_path = ANNOTATIONS_DIR / 'user_annotations.csv'
-    exists = csv_path.exists()
-    return jsonify({'csv_path': str(csv_path), 'exists': exists})
-
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)

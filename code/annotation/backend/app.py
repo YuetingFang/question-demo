@@ -354,18 +354,14 @@ def save_annotation():
         question_id = data.get('question_id')
         db_id = data.get('db_id')
         task_description = data.get('task_description')
+        prolific_pid = data.get('prolific_pid', '')  # 提取prolific_pid，如果不存在则为空字符串
         
         # Validate required fields
         if not user_id or not inputs or not question_id or not db_id or not task_description:
             return jsonify({'error': 'Missing required fields'}), 400
-        
-        # Create directory for annotations if it doesn't exist
-        # 使用 PROJECT_ROOT 确保路径正确，无论后端代码位置如何
        
         os.makedirs(ANNOTATIONS_DIR, exist_ok=True)
-        
-        # CSV file path
-        csv_path = ANNOTATIONS_DIR / 'user_annotations.csv'
+        csv_path = ANNOTATIONS_DIR / 'annotation_results.csv'
         file_exists = os.path.isfile(csv_path)
         
         # Write to CSV file
@@ -374,19 +370,13 @@ def save_annotation():
             
             # Write header if file doesn't exist
             if not file_exists:
-                writer.writerow(['ID', 'Input', 'question_id', 'db_id', 'task_description', 'timestamp'])
+                writer.writerow(['prolific_pid', 'ID', 'Input', 'question_id', 'db_id', 'task_description', 'timestamp'])
             
             # Write each input as a separate row
             timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             for input_text in inputs:
                 if input_text.strip():  # Only write non-empty inputs
-                    writer.writerow([user_id, input_text, question_id, db_id, task_description, timestamp])
-        
-        return jsonify({'success': True, 'message': 'Annotation saved successfully'})
-    except Exception as e:
-        import traceback
-        traceback.print_exc()
-        return jsonify({'error': str(e)}), 500
+                    writer.writerow([user_id, input_text, question_id, db_id, task_description, prolific_pid, timestamp])
 
 DOWNLOAD_TOKEN = os.environ.get("DOWNLOAD_SECRET", "default_token")
 @app.route('/api/download-annotations', methods=['GET'])
@@ -398,7 +388,7 @@ def download_annotations():
     if token != DOWNLOAD_TOKEN:
         return abort(403, description="Unauthorized download access.")
 
-    csv_path = ANNOTATIONS_DIR / 'user_annotations.csv'
+    csv_path = ANNOTATIONS_DIR / 'annotation_results.csv'
 
     if not csv_path.exists():
         return jsonify({'error': 'No annotation file found.'}), 404

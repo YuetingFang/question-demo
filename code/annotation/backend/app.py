@@ -354,7 +354,7 @@ def save_annotation():
         question_id = data.get('question_id')
         db_id = data.get('db_id')
         task_description = data.get('task_description')
-        prolific_pid = data.get('prolific_pid', '')  # 提取prolific_pid，如果不存在则为空字符串
+        prolific_pid = data.get('prolific_pid', 'local')  # 提取prolific_pid，如果不存在则为空字符串
         
         # Validate required fields
         if not user_id or not inputs or not question_id or not db_id or not task_description:
@@ -409,7 +409,7 @@ def download_annotations():
             csv_path,
             mimetype='text/csv',
             as_attachment=True,
-            download_name='user_annotations.csv'
+            download_name='annotation_results.csv'
         )
     except Exception as e:
         return jsonify({'error': f'Error sending file: {str(e)}'}), 500

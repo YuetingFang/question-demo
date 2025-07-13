@@ -59,6 +59,7 @@ function DesktopGuidelines() {
             <p><strong><u>Notes</u></strong></p>
             <ul className="enhanced-list">
               <li className="enhanced-list-item">To enter more than one statement/command/question/query for the text description, you can press the Add button.</li>
+              <li className="enhanced-list-item">Do <strong>NOT</strong> use AI tools (e.g., ChatGPT, Claude, Gemini) to complete the task. </li>
             </ul>
             <br />
           </div>

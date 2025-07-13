@@ -381,7 +381,7 @@ def save_annotation():
             timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             for input_text in inputs:
                 if input_text.strip():  # Only write non-empty inputs
-                    writer.writerow([user_id, input_text, question_id, db_id, task_description, prolific_pid, timestamp])
+                    writer.writerow([prolific_pid, user_id, input_text, question_id, db_id, task_description, timestamp])
         
         return jsonify({'success': True, 'message': 'Annotation saved successfully'})
     except Exception as e:

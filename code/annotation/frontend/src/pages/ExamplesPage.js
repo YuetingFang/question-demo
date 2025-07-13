@@ -505,7 +505,8 @@ function ExamplesPage() {
     return (
       <div className="desktop-input-container">
         <div className="d-flex justify-content-between align-items-center mb-1">
-          <p> Type one or more natural language {currentOrdering} to retrieve the expected information from the left database based on the task description. </p>
+          <p> Please turn the task description into one or more natural language {currentOrdering} that would retrieve the expected information from the database on the left. Do not consult AI assistants or any external help. </p>
+          <p> Use your own words. No AI. No long texts. </p>
         </div>
 
         {userQueries.map((query, index) => (

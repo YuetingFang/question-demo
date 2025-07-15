@@ -49,12 +49,14 @@ function ThankYouPage() {
             </p>
             
             <div style={{ marginTop: '3rem' }}>
-              <button
+             <button
                 className="desktop-button desktop-button-primary"
-                onClick={() => navigate('/')}
+                onClick={() =>
+                  (window.location.href = 'https://app.prolific.com/submissions/complete?cc=CX32W5WP')
+                }
                 style={{ marginRight: '1rem' }}
               >
-                Return to Introduction
+                End
               </button>
             </div>
           </div>
